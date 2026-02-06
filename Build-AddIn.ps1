@@ -2,13 +2,22 @@
 # This script creates the .xlam file from VBA modules using Excel COM automation
 
 param(
-    [string]$OutputPath = ".\DocSoThanhChu.xlam"
+    [string]$Version = "1.0.5",
+    [switch]$NoVersion
 )
 
 $ErrorActionPreference = "Stop"
 
+# Output filename
+if ($NoVersion) {
+    $OutputFileName = "DocSoThanhChu.xlam"
+}
+else {
+    $OutputFileName = "DocSoThanhChu_v$Version.xlam"
+}
+
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host " DocSoThanhChu Add-in Builder" -ForegroundColor Cyan
+Write-Host " DocSoThanhChu Add-in Builder v$Version" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -69,7 +78,7 @@ try {
     $Workbook.IsAddin = $false  # Leave as false during save, will become true when opened as .xlam
     
     # Save as Excel Add-in (.xlam)
-    $OutputFullPath = Join-Path $ScriptDir (Split-Path -Leaf $OutputPath)
+    $OutputFullPath = Join-Path $ScriptDir $OutputFileName
     
     # Remove existing file if exists
     if (Test-Path $OutputFullPath) {
