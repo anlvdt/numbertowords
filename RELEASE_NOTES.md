@@ -3,34 +3,34 @@
 ## Release Info
 
 - **Tag:** v1.0.0  
-- **Title:** v1.0.0 - Excel Add-in Doc So Thanh Chu (Number to Words)
+- **Title:** v1.0.0 - Excel Add-in Đọc Số Thành Chữ (Number to Words)
 - **Asset:** DocSoThanhChu.xlam
 
 ---
 
 ## Release Notes (Copy & Paste to GitHub)
 
-## Features | Tinh nang
+## Features / Tính năng
 
-- **DocSoVND_Vi**: Read VND in Vietnamese | Doc VND tieng Viet
-- **DocSoVND_En**: Read VND in English | Doc VND tieng Anh
-- **DocSoUSD_Vi**: Read USD in Vietnamese | Doc USD tieng Viet
-- **DocSoUSD_En**: Read USD in English | Doc USD tieng Anh
-- **DocSo_Vi/DocSo_En**: Read integers without currency | Doc so nguyen khong don vi
+- **DocSoVND_Vi**: Read VND in Vietnamese / Đọc VND tiếng Việt
+- **DocSoVND_En**: Read VND in English / Đọc VND tiếng Anh
+- **DocSoUSD_Vi**: Read USD in Vietnamese / Đọc USD tiếng Việt
+- **DocSoUSD_En**: Read USD in English / Đọc USD tiếng Anh
+- **DocSo_Vi/DocSo_En**: Read integers without currency / Đọc số nguyên không đơn vị
 
-## Compliance | Tuan thu
+## Compliance / Tuân thủ
 
 - Vietnamese Accounting Law 88/2015/QH13
 - Circular 39/2014/TT-BTC, 26/2015/TT-BTC
-- Decree 123/2020/ND-CP
+- Decree 123/2020/NĐ-CP
 
-## Compatibility | Tuong thich
+## Compatibility / Tương thích
 
 - Microsoft 365 (32-bit & 64-bit)
 - Excel 2021, 2019, 2016, 2013, 2010
 - Antivirus safe: Windows Defender, CrowdStrike, Trend Micro
 
-## Download & Install
+## Download & Install / Tải và cài đặt
 
 1. Download `DocSoThanhChu.xlam` below
 2. Open Excel > File > Options > Add-ins
