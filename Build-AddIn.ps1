@@ -16,22 +16,34 @@ Write-Host ""
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $ScriptDir) { $ScriptDir = Get-Location }
 
-$ModuleFiles = @(
-    "$ScriptDir\modVietnameseConverter.bas",
-    "$ScriptDir\modEnglishConverter.bas",
-    "$ScriptDir\modMainFunctions.bas"
+# Check for combined module first, then fallback to separate modules
+$combinedModule = Join-Path $PSScriptRoot "modDocSoThanhChu.bas"
+$separateModules = @(
+    (Join-Path $PSScriptRoot "modVietnameseConverter.bas"),
+    (Join-Path $PSScriptRoot "modEnglishConverter.bas"),
+    (Join-Path $PSScriptRoot "modMainFunctions.bas")
 )
 
-# Check if all module files exist
-Write-Host "Checking source files..." -ForegroundColor Yellow
-foreach ($file in $ModuleFiles) {
-    if (-not (Test-Path $file)) {
-        Write-Host "ERROR: File not found: $file" -ForegroundColor Red
-        exit 1
-    }
-    Write-Host "  [OK] $(Split-Path -Leaf $file)" -ForegroundColor Green
-}
+$modulesToImport = @()
 
+if (Test-Path $combinedModule) {
+    Write-Host "Using combined module..." -ForegroundColor Yellow
+    Write-Host "  [OK] modDocSoThanhChu.bas" -ForegroundColor Green
+    $modulesToImport = @($combinedModule)
+}
+else {
+    Write-Host "Using separate modules..." -ForegroundColor Yellow
+    foreach ($file in $separateModules) {
+        if (Test-Path $file) {
+            Write-Host "  [OK] $(Split-Path $file -Leaf)" -ForegroundColor Green
+            $modulesToImport += $file
+        }
+        else {
+            Write-Host "  [ERROR] $(Split-Path $file -Leaf) not found!" -ForegroundColor Red
+            exit 1
+        }
+    }
+}
 Write-Host ""
 Write-Host "Creating Excel Add-in..." -ForegroundColor Yellow
 
@@ -48,7 +60,7 @@ try {
     $VBProject = $Workbook.VBProject
     
     # Import modules
-    foreach ($file in $ModuleFiles) {
+    foreach ($file in $modulesToImport) {
         Write-Host "  Importing $(Split-Path -Leaf $file)..." -ForegroundColor Gray
         $VBProject.VBComponents.Import($file) | Out-Null
     }
@@ -71,7 +83,8 @@ try {
     Write-Host "SUCCESS!" -ForegroundColor Green
     Write-Host "Add-in created: $OutputFullPath" -ForegroundColor Green
     
-} catch {
+}
+catch {
     Write-Host ""
     Write-Host "ERROR: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host ""
@@ -83,7 +96,8 @@ try {
     Write-Host ""
     exit 1
     
-} finally {
+}
+finally {
     # Clean up
     if ($Workbook) {
         $Workbook.Close($false)
@@ -109,8 +123,10 @@ Write-Host "4. Browse... > Select DocSoThanhChu.xlam" -ForegroundColor White
 Write-Host "5. Check the checkbox and click OK" -ForegroundColor White
 Write-Host ""
 Write-Host "Available functions:" -ForegroundColor Yellow
-Write-Host "  =DocSoVND_Vi(A1)  - VND in Vietnamese" -ForegroundColor Gray
-Write-Host "  =DocSoVND_En(A1)  - VND in English" -ForegroundColor Gray
-Write-Host "  =DocSoUSD_Vi(A1)  - USD in Vietnamese" -ForegroundColor Gray
-Write-Host "  =DocSoUSD_En(A1)  - USD in English" -ForegroundColor Gray
+Write-Host "  =VND_Vi(A1)  - VND in Vietnamese" -ForegroundColor Gray
+Write-Host "  =VND_En(A1)  - VND in English" -ForegroundColor Gray
+Write-Host "  =USD_Vi(A1)  - USD in Vietnamese" -ForegroundColor Gray
+Write-Host "  =USD_En(A1)  - USD in English" -ForegroundColor Gray
+Write-Host "  =So_Vi(A1)   - Number in Vietnamese" -ForegroundColor Gray
+Write-Host "  =So_En(A1)   - Number in English" -ForegroundColor Gray
 Write-Host ""
