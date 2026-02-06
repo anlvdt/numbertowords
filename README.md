@@ -146,6 +146,21 @@ cd numbertowords
 
 ---
 
+## Reference / Tham khảo
+
+Based on / Dựa trên:
+- [Đọc số thành chữ bằng Add-in - Học Excel Online](https://blog.hocexcel.online/doc-so-thanh-chu-bang-add-in-tu-hoc-excel-online.html) - **Nguyễn Đức Thanh**
+
+Enhanced with / Cải tiến thêm:
+- VND + USD support
+- Vietnamese + English output
+- Shortened function names (VND_Vi, VND_En, etc.)
+- M365 32/64-bit compatible
+- Pure VBA (antivirus safe)
+- One-click installer
+
+---
+
 ## Author / Tác giả
 
 **Le Van An** (Vietnam IT)

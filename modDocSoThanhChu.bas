@@ -46,10 +46,11 @@ Public Sub Auto_Open()
     msg = msg & "=So_En(A1)    Number English" & vbCrLf & vbCrLf
     msg = msg & "EXAMPLE: =VND_Vi(1234567)" & vbCrLf & vbCrLf
     msg = msg & "--------------------------------------" & vbCrLf
-    msg = msg & "SUPPORT THE AUTHOR:" & vbCrLf
+    msg = msg & "Based on: blog.hocexcel.online" & vbCrLf
+    msg = msg & "By Nguyen Duc Thanh" & vbCrLf & vbCrLf
+    msg = msg & "SUPPORT:" & vbCrLf
     msg = msg & "MB Bank: 0360126996868" & vbCrLf
-    msg = msg & "Momo: 0976896621" & vbCrLf
-    msg = msg & "Name: LE VAN AN" & vbCrLf
+    msg = msg & "Momo: 0976896621 - LE VAN AN" & vbCrLf
     msg = msg & "GitHub: github.com/anlvdt"
     
     MsgBox msg, vbInformation, "DocSoThanhChu by AN LE (Vietnam IT)"
