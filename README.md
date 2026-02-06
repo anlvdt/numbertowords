@@ -3,6 +3,7 @@
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/excel)
 [![VBA](https://img.shields.io/badge/VBA-867DB0?style=for-the-badge&logo=visual-basic&logoColor=white)](https://docs.microsoft.com/office/vba/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/anlvdt/numbertowords?style=for-the-badge)](https://github.com/anlvdt/numbertowords/releases)
 
 **English** | [Tiếng Việt](#tiếng-việt)
 
@@ -10,34 +11,39 @@
 
 ## English
 
-Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both **Vietnamese** and **English**.
+Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both **Vietnamese** and **English**. Perfect for accounting, invoices, and financial documents.
 
 ### Features
 
 | Function | Description | Example Output |
 |----------|-------------|----------------|
-| `DocSoVND_Vi(number)` | VND to Vietnamese | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
-| `DocSoVND_En(number)` | VND to English | "One million two hundred thirty-four thousand... Vietnamese dong" |
-| `DocSoUSD_Vi(number)` | USD to Vietnamese | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
-| `DocSoUSD_En(number)` | USD to English | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
-| `DocSo_Vi(number)` | Number to Vietnamese | Read integer without currency |
-| `DocSo_En(number)` | Number to English | Read integer without currency |
+| `VND_Vi(number)` | VND to Vietnamese | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
+| `VND_En(number)` | VND to English | "One million two hundred thirty-four thousand... Vietnamese dong" |
+| `USD_Vi(number)` | USD to Vietnamese | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
+| `USD_En(number)` | USD to English | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
+| `So_Vi(number)` | Number to Vietnamese | Read integer without currency |
+| `So_En(number)` | Number to English | Read integer without currency |
 
 ### Installation
 
-1. Download `DocSoThanhChu.xlam` from [Releases](https://github.com/anlvdt/numbertowords/releases)
-2. Open **Excel** > **File** > **Options** > **Add-ins**
-3. **Manage**: Excel Add-ins > **Go...**
-4. **Browse...** > Select `DocSoThanhChu.xlam`
-5. Check the checkbox > **OK**
+**Option 1: One-Click Install**
+1. Download `DocSoThanhChu.xlam` and `Install.vbs` from [Releases](https://github.com/anlvdt/numbertowords/releases)
+2. Double-click `Install.vbs`
+3. Open Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+
+**Option 2: Manual Install**
+1. Download `DocSoThanhChu.xlam`
+2. Copy to `%APPDATA%\Microsoft\AddIns\`
+3. Open Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
 
 ### Usage
 
 ```excel
-=DocSoVND_Vi(A1)      ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
-=DocSoVND_En(A1)      ' 1234567 -> "One million... Vietnamese dong"
-=DocSoUSD_Vi(1234.56) ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
-=DocSoUSD_En(1234.56) ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
+=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
+=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong"
+=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
+=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
+=So_Vi(-500000)    ' "Âm năm trăm nghìn"
 ```
 
 ### Compatibility
@@ -66,35 +72,39 @@ Compliant with Vietnamese Accounting Law 88/2015/QH13, Circular 39/2014/TT-BTC:
 
 ## Tiếng Việt
 
-Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** bằng **tiếng Việt** và **tiếng Anh**.
+Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** bằng **tiếng Việt** và **tiếng Anh**. Phù hợp cho kế toán, hóa đơn, và chứng từ tài chính.
 
 ### Tính năng
 
 | Hàm | Mô tả | Kết quả |
 |-----|-------|---------|
-| `DocSoVND_Vi(số)` | VND -> Tiếng Việt | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
-| `DocSoVND_En(số)` | VND -> Tiếng Anh | "One million two hundred thirty-four thousand... Vietnamese dong" |
-| `DocSoUSD_Vi(số)` | USD -> Tiếng Việt | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
-| `DocSoUSD_En(số)` | USD -> Tiếng Anh | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
-| `DocSo_Vi(số)` | Số -> Tiếng Việt | Đọc số nguyên không có đơn vị tiền |
-| `DocSo_En(số)` | Số -> Tiếng Anh | Read integer without currency |
+| `VND_Vi(số)` | VND -> Tiếng Việt | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
+| `VND_En(số)` | VND -> Tiếng Anh | "One million two hundred thirty-four thousand... Vietnamese dong" |
+| `USD_Vi(số)` | USD -> Tiếng Việt | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
+| `USD_En(số)` | USD -> Tiếng Anh | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
+| `So_Vi(số)` | Số -> Tiếng Việt | Đọc số nguyên không có đơn vị tiền |
+| `So_En(số)` | Số -> Tiếng Anh | Read integer without currency |
 
 ### Cài đặt
 
-1. Tải `DocSoThanhChu.xlam` từ [Releases](https://github.com/anlvdt/numbertowords/releases)
-2. Mở **Excel** > **File** > **Options** (Tùy chọn) > **Add-ins** (Bổ trợ)
-3. **Manage**: Excel Add-ins > **Go...**
-4. **Browse...** > Chọn file `DocSoThanhChu.xlam`
-5. Đánh dấu checkbox > **OK**
+**Cách 1: One-Click (khuyên dùng)**
+1. Tải `DocSoThanhChu.xlam` và `Install.vbs` từ [Releases](https://github.com/anlvdt/numbertowords/releases)
+2. Double-click file `Install.vbs`
+3. Mở Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+
+**Cách 2: Thủ công**
+1. Tải `DocSoThanhChu.xlam`
+2. Copy vào `%APPDATA%\Microsoft\AddIns\`
+3. Mở Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
 
 ### Hướng dẫn sử dụng
 
 ```excel
-=DocSoVND_Vi(A1)      ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
-=DocSoVND_En(A1)      ' 1234567 -> "One million... Vietnamese dong"
-=DocSoUSD_Vi(1234.56) ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
-=DocSoUSD_En(1234.56) ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
-=DocSoVND_Vi(-500000) ' "Âm năm trăm nghìn đồng"
+=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
+=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong"
+=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
+=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
+=VND_Vi(-500000)   ' "Âm năm trăm nghìn đồng"
 ```
 
 ### Tương thích
@@ -124,28 +134,15 @@ Tuân thủ Luật Kế toán 88/2015/QH13, Thông tư 39/2014/TT-BTC:
 ## Build from Source / Tạo từ mã nguồn
 
 ```bash
-# Clone repository
 git clone https://github.com/anlvdt/numbertowords.git
+cd numbertowords
 
-# Open Excel > Alt+F11 > File > Import File
-# Import: modVietnameseConverter.bas, modEnglishConverter.bas, modMainFunctions.bas
-# File > Save As > Excel Add-in (*.xlam)
+# Build using PowerShell
+.\Build-AddIn.ps1
+
+# Test
+.\Test-AddIn.ps1
 ```
-
-Or run: `Build-AddIn.ps1` or `Build-AddIn.bat`
-
----
-
-## Reference / Tham khảo
-
-Based on:
-- [Học Excel Online](https://blog.hocexcel.online/doc-so-thanh-chu-bang-add-in-tu-hoc-excel-online.html) - Nguyễn Đức Thanh
-
-Enhanced with:
-- VND + USD support
-- Vietnamese + English output
-- M365 32/64-bit compatible
-- Pure VBA (antivirus safe)
 
 ---
 

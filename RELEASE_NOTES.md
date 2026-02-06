@@ -1,38 +1,63 @@
-# Release Notes - v1.0.0
+# Release Notes
 
-## Release Info
+## v1.0.5 (2026-02-06)
 
-- **Tag:** v1.0.0  
-- **Title:** v1.0.0 - Excel Add-in Đọc Số Thành Chữ (Number to Words)
-- **Asset:** DocSoThanhChu.xlam
+### What's New
+- **Merged modules**: Combined 3 VBA modules into single `modDocSoThanhChu.bas`
+- **Shortened function names** for better UX:
+  - `VND_Vi(A1)` - VND Vietnamese
+  - `VND_En(A1)` - VND English
+  - `USD_Vi(A1)` - USD Vietnamese
+  - `USD_En(A1)` - USD English
+  - `So_Vi(A1)` - Number Vietnamese
+  - `So_En(A1)` - Number English
+- **One-click installer**: Added `Install.vbs` (no admin required, AV-safe)
+- **Cleaner autocomplete**: Internal functions now Private
+
+### Breaking Changes
+- Function names changed from `DocSoVND_Vi` to `VND_Vi` (shorter)
+- Old function names no longer work
 
 ---
 
-## Release Notes (Copy & Paste to GitHub)
+## v1.0.4 (2026-02-06)
 
-## Features / Tính năng
+### What's New
+- Added welcome message with branding
+- Added donation info (MB Bank, Momo)
+- Fixed Vietnamese diacritics encoding
 
-- **DocSoVND_Vi**: Read VND in Vietnamese / Đọc VND tiếng Việt
-- **DocSoVND_En**: Read VND in English / Đọc VND tiếng Anh
-- **DocSoUSD_Vi**: Read USD in Vietnamese / Đọc USD tiếng Việt
-- **DocSoUSD_En**: Read USD in English / Đọc USD tiếng Anh
-- **DocSo_Vi/DocSo_En**: Read integers without currency / Đọc số nguyên không đơn vị
+---
 
-## Compliance / Tuân thủ
+## v1.0.3 (2026-02-06)
 
-- Vietnamese Accounting Law 88/2015/QH13
-- Circular 39/2014/TT-BTC, 26/2015/TT-BTC
-- Decree 123/2020/NĐ-CP
+### What's New
+- Full Vietnamese diacritics support using ChrW()
+- Welcome popup on Add-in load
 
-## Compatibility / Tương thích
+---
 
-- Microsoft 365 (32-bit & 64-bit)
-- Excel 2021, 2019, 2016, 2013, 2010
-- Antivirus safe: Windows Defender, CrowdStrike, Trend Micro
+## v1.0.2 (2026-02-06)
 
-## Download & Install / Tải và cài đặt
+### What's New
+- Added `DocSo_Vi()` and `DocSo_En()` functions
+- Bilingual documentation (EN/VI)
 
-1. Download `DocSoThanhChu.xlam` below
-2. Open Excel > File > Options > Add-ins
-3. Manage: Excel Add-ins > Go... > Browse...
-4. Select the downloaded file > OK
+---
+
+## v1.0.1 (2026-02-06)
+
+### What's New
+- Added USD support (Vietnamese & English)
+- Added negative number handling
+
+---
+
+## v1.0.0 (2026-02-06)
+
+### Initial Release
+- VND to Vietnamese text
+- VND to English text
+- Vietnamese accounting rules (mười/mươi, mốt/tư/lăm, lẻ, nghìn)
+- Microsoft 365 compatible (32-bit & 64-bit)
+- Pure VBA (antivirus safe)
