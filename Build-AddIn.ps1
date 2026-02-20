@@ -2,7 +2,7 @@
 # This script creates the .xlam file from VBA modules using Excel COM automation
 
 param(
-    [string]$Version = "1.0.5",
+    [string]$Version = "1.1.0",
     [switch]$NoVersion
 )
 

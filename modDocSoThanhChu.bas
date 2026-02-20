@@ -4,7 +4,7 @@ Option Explicit
 ' =====================================================
 ' DocSoThanhChu - Number to Words Add-in
 ' Author: Le Van An (@anlvdt)
-' Version: 1.0.5
+' Version: 1.1.0
 ' GitHub: github.com/anlvdt/numbertowords
 ' =====================================================
 ' PUBLIC FUNCTIONS (visible in Excel):
@@ -27,15 +27,25 @@ Private Const EN_CENT As String = "cent"
 Private Const EN_DOLLAR As String = "dollar"
 
 ' =====================================================
-' AUTO OPEN - Welcome Message
+' AUTO OPEN - Show welcome dialog on FIRST USE only
+' Uses VBA SaveSetting/GetSetting (registry-based, AV-safe)
 ' =====================================================
 
 Public Sub Auto_Open()
+    Dim shown As String
+    shown = GetSetting("DocSoThanhChu", "Config", "WelcomeShown", "No")
+    
+    If shown <> "Yes" Then
+        DocSoThanhChu_Help
+        SaveSetting "DocSoThanhChu", "Config", "WelcomeShown", "Yes"
+    End If
+End Sub
+
+Public Sub DocSoThanhChu_Help()
     Dim msg As String
     
     msg = "=== DOC SO THANH CHU ===" & vbCrLf
-    msg = msg & "NUMBER TO WORDS ADD-IN v1.0.5" & vbCrLf & vbCrLf
-    msg = msg & "Add-in installed successfully!" & vbCrLf & vbCrLf
+    msg = msg & "NUMBER TO WORDS ADD-IN v1.1.0" & vbCrLf & vbCrLf
     msg = msg & "FUNCTIONS:" & vbCrLf
     msg = msg & "--------------------------------------" & vbCrLf
     msg = msg & "=VND_Vi(A1)   VND Vietnamese" & vbCrLf
@@ -56,10 +66,6 @@ Public Sub Auto_Open()
     MsgBox msg, vbInformation, "DocSoThanhChu by AN LE (Vietnam IT)"
 End Sub
 
-Public Sub DocSoThanhChu_Help()
-    Auto_Open
-End Sub
-
 ' =====================================================
 ' PUBLIC FUNCTIONS - These appear in Excel autocomplete
 ' =====================================================
@@ -68,11 +74,20 @@ Public Function VND_Vi(ByVal soTien As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
     
+    If IsEmpty(soTien) Or soTien = "" Then
+        VND_Vi = ""
+        Exit Function
+    End If
+    If Not IsNumeric(soTien) Then
+        VND_Vi = "#ERROR: Input is not a number"
+        Exit Function
+    End If
+    
     Dim kq As String
     kq = DocSoNguyenVi(Fix(CDbl(soTien)))
     
     If kq <> "" And Left(kq, 1) <> "#" Then
-        kq = kq & " " & GetVietnameseWord("dong")
+        kq = kq & " " & GetVietnameseWord("dong") & "."
     End If
     
     VND_Vi = kq
@@ -86,11 +101,20 @@ Public Function VND_En(ByVal amount As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
     
+    If IsEmpty(amount) Or amount = "" Then
+        VND_En = ""
+        Exit Function
+    End If
+    If Not IsNumeric(amount) Then
+        VND_En = "#ERROR: Input is not a number"
+        Exit Function
+    End If
+    
     Dim result As String
     result = DocSoNguyenEn(Fix(CDbl(amount)))
     
     If result <> "" And Left(result, 1) <> "#" Then
-        result = result & " " & EN_VND_UNIT
+        result = result & " " & EN_VND_UNIT & "."
     End If
     
     VND_En = result
@@ -104,11 +128,20 @@ Public Function USD_Vi(ByVal soTien As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
     
-    Dim nguyen As Double, le As Integer
+    If IsEmpty(soTien) Or soTien = "" Then
+        USD_Vi = ""
+        Exit Function
+    End If
+    If Not IsNumeric(soTien) Then
+        USD_Vi = "#ERROR: Input is not a number"
+        Exit Function
+    End If
+    
+    Dim nguyen As Double, le As Long
     Dim kq As String, kqLe As String
     
     nguyen = Fix(CDbl(soTien))
-    le = CInt(Round((CDbl(soTien) - nguyen) * 100, 0))
+    le = CLng(Round((CDbl(soTien) - nguyen) * 100, 0))
     
     kq = DocSoNguyenVi(nguyen)
     
@@ -122,6 +155,7 @@ Public Function USD_Vi(ByVal soTien As Variant) As String
                 kq = kq & " " & GetVietnameseWord("va") & " " & kqLe & " " & GetVietnameseWord("xu")
             End If
         End If
+        kq = kq & "."
     End If
     
     USD_Vi = kq
@@ -135,12 +169,21 @@ Public Function USD_En(ByVal amount As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
     
-    Dim integerPart As Double, decimalPart As Integer
+    If IsEmpty(amount) Or amount = "" Then
+        USD_En = ""
+        Exit Function
+    End If
+    If Not IsNumeric(amount) Then
+        USD_En = "#ERROR: Input is not a number"
+        Exit Function
+    End If
+    
+    Dim integerPart As Double, decimalPart As Long
     Dim result As String, centsResult As String
     Dim dollarUnit As String, centUnit As String
     
     integerPart = Fix(CDbl(amount))
-    decimalPart = CInt(Round((CDbl(amount) - integerPart) * 100, 0))
+    decimalPart = CLng(Round((CDbl(amount) - integerPart) * 100, 0))
     
     If integerPart = 1 Then
         dollarUnit = EN_DOLLAR
@@ -166,6 +209,7 @@ Public Function USD_En(ByVal amount As Variant) As String
                 result = result & " and " & centsResult & " " & centUnit
             End If
         End If
+        result = result & "."
     End If
     
     USD_En = result
@@ -179,6 +223,15 @@ Public Function So_Vi(ByVal so As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
     
+    If IsEmpty(so) Or so = "" Then
+        So_Vi = ""
+        Exit Function
+    End If
+    If Not IsNumeric(so) Then
+        So_Vi = "#ERROR: Input is not a number"
+        Exit Function
+    End If
+    
     So_Vi = DocSoNguyenVi(so)
     Exit Function
     
@@ -189,6 +242,15 @@ End Function
 Public Function So_En(ByVal number As Variant) As String
     Application.Volatile False
     On Error GoTo ErrorHandler
+    
+    If IsEmpty(number) Or number = "" Then
+        So_En = ""
+        Exit Function
+    End If
+    If Not IsNumeric(number) Then
+        So_En = "#ERROR: Input is not a number"
+        Exit Function
+    End If
     
     So_En = DocSoNguyenEn(number)
     Exit Function
@@ -239,8 +301,8 @@ Private Function GetSoTiengViet() As Variant
         GetVietnameseWord("tam"), GetVietnameseWord("chin"))
 End Function
 
-Private Function DocSo2ChuSoVi(ByVal so As Integer) As String
-    Dim chuc As Integer, donvi As Integer
+Private Function DocSo2ChuSoVi(ByVal so As Long) As String
+    Dim chuc As Long, donvi As Long
     Dim arrSo As Variant
     Dim kq As String
     
@@ -251,7 +313,7 @@ Private Function DocSo2ChuSoVi(ByVal so As Integer) As String
     If chuc = 0 Then
         kq = arrSo(donvi)
     ElseIf chuc = 1 Then
-        kq = "m" & ChrW(432) & ChrW(7901) & "i"
+        kq = GetVietnameseWord("muoi")
         If donvi = 5 Then
             kq = kq & " " & GetVietnameseWord("lam")
         ElseIf donvi > 0 Then
@@ -275,8 +337,8 @@ Private Function DocSo2ChuSoVi(ByVal so As Integer) As String
     DocSo2ChuSoVi = kq
 End Function
 
-Private Function DocSo3ChuSoVi(ByVal so As Integer, Optional ByVal coLe As Boolean = False) As String
-    Dim tram As Integer, chuc As Integer, donvi As Integer
+Private Function DocSo3ChuSoVi(ByVal so As Long, Optional ByVal coLe As Boolean = False) As String
+    Dim tram As Long, chuc As Long, donvi As Long
     Dim arrSo As Variant
     Dim kq As String
     
@@ -294,7 +356,11 @@ Private Function DocSo3ChuSoVi(ByVal so As Integer, Optional ByVal coLe As Boole
     End If
     
     If chuc = 0 And donvi > 0 Then
-        kq = kq & " " & GetVietnameseWord("le") & " " & arrSo(donvi)
+        If tram > 0 Or coLe Then
+            kq = kq & " " & GetVietnameseWord("le") & " " & arrSo(donvi)
+        Else
+            kq = arrSo(donvi)
+        End If
     ElseIf chuc > 0 Or donvi > 0 Then
         If Len(kq) > 0 Then kq = kq & " "
         kq = kq & DocSo2ChuSoVi(chuc * 10 + donvi)
@@ -330,38 +396,43 @@ Private Function DocSoNguyenVi(ByVal soNguyen As Variant) As String
         Exit Function
     End If
     
-    ty = Fix(so / 1000000000#)
+    If so >= 1000000000000# Then
+        DocSoNguyenVi = "#ERROR: Number too large (max 999 billion)"
+        Exit Function
+    End If
+    
+    ty = CLng(Fix(so / 1000000000#))
     so = so - ty * 1000000000#
     
-    trieu = Fix(so / 1000000)
+    trieu = CLng(Fix(so / 1000000))
     so = so - trieu * 1000000
     
-    nghin = Fix(so / 1000)
-    donViSo = Fix(so - nghin * 1000)
+    nghin = CLng(Fix(so / 1000))
+    donViSo = CLng(Fix(so - nghin * 1000))
     
     kq = ""
     
     If ty > 0 Then
-        kq = DocSo3ChuSoVi(CInt(ty), False) & " " & GetVietnameseWord("ty")
+        kq = DocSo3ChuSoVi(ty, False) & " " & GetVietnameseWord("ty")
     End If
     
     If trieu > 0 Then
         If Len(kq) > 0 Then kq = kq & " "
-        kq = kq & DocSo3ChuSoVi(CInt(trieu), ty > 0) & " " & GetVietnameseWord("trieu")
+        kq = kq & DocSo3ChuSoVi(trieu, ty > 0) & " " & GetVietnameseWord("trieu")
     ElseIf ty > 0 And (nghin > 0 Or donViSo > 0) Then
         kq = kq & " " & GetVietnameseWord("khong") & " " & GetVietnameseWord("tram") & " " & GetVietnameseWord("trieu")
     End If
     
     If nghin > 0 Then
         If Len(kq) > 0 Then kq = kq & " "
-        kq = kq & DocSo3ChuSoVi(CInt(nghin), (ty > 0 Or trieu > 0)) & " " & GetVietnameseWord("nghin")
+        kq = kq & DocSo3ChuSoVi(nghin, (ty > 0 Or trieu > 0)) & " " & GetVietnameseWord("nghin")
     ElseIf (ty > 0 Or trieu > 0) And donViSo > 0 Then
         kq = kq & " " & GetVietnameseWord("khong") & " " & GetVietnameseWord("tram") & " " & GetVietnameseWord("nghin")
     End If
     
     If donViSo > 0 Then
         If Len(kq) > 0 Then kq = kq & " "
-        kq = kq & DocSo3ChuSoVi(CInt(donViSo), (ty > 0 Or trieu > 0 Or nghin > 0))
+        kq = kq & DocSo3ChuSoVi(donViSo, (ty > 0 Or trieu > 0 Or nghin > 0))
     End If
     
     If isNegative Then
@@ -393,7 +464,7 @@ Private Function GetTens() As Variant
     GetTens = Array("", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
 End Function
 
-Private Function ConvertUnder100(ByVal num As Integer) As String
+Private Function ConvertUnder100(ByVal num As Long) As String
     Dim ones As Variant, tens As Variant
     Dim result As String
     
@@ -412,8 +483,8 @@ Private Function ConvertUnder100(ByVal num As Integer) As String
     ConvertUnder100 = result
 End Function
 
-Private Function ConvertUnder1000(ByVal num As Integer, Optional ByVal needAnd As Boolean = False) As String
-    Dim hundreds As Integer, remainder As Integer
+Private Function ConvertUnder1000(ByVal num As Long, Optional ByVal needAnd As Boolean = False) As String
+    Dim hundreds As Long, remainder As Long
     Dim ones As Variant
     Dim result As String
     
@@ -464,40 +535,45 @@ Private Function DocSoNguyenEn(ByVal number As Variant) As String
         Exit Function
     End If
     
-    billions = Fix(num / 1000000000#)
+    If num >= 1000000000000# Then
+        DocSoNguyenEn = "#ERROR: Number too large (max 999 billion)"
+        Exit Function
+    End If
+    
+    billions = CLng(Fix(num / 1000000000#))
     num = num - billions * 1000000000#
     
-    millions = Fix(num / 1000000)
+    millions = CLng(Fix(num / 1000000))
     num = num - millions * 1000000
     
-    thousands = Fix(num / 1000)
-    remainder = Fix(num - thousands * 1000)
+    thousands = CLng(Fix(num / 1000))
+    remainder = CLng(Fix(num - thousands * 1000))
     
     result = ""
     
     If billions > 0 Then
-        result = ConvertUnder1000(CInt(billions)) & " billion"
+        result = ConvertUnder1000(billions) & " billion"
     End If
     
     If millions > 0 Then
         If Len(result) > 0 Then result = result & " "
-        result = result & ConvertUnder1000(CInt(millions)) & " million"
+        result = result & ConvertUnder1000(millions) & " million"
     End If
     
     If thousands > 0 Then
         If Len(result) > 0 Then result = result & " "
-        result = result & ConvertUnder1000(CInt(thousands)) & " thousand"
+        result = result & ConvertUnder1000(thousands) & " thousand"
     End If
     
     If remainder > 0 Then
         If Len(result) > 0 Then
             If remainder < 100 Then
-                result = result & " and " & ConvertUnder1000(CInt(remainder))
+                result = result & " and " & ConvertUnder1000(remainder)
             Else
-                result = result & " " & ConvertUnder1000(CInt(remainder))
+                result = result & " " & ConvertUnder1000(remainder)
             End If
         Else
-            result = ConvertUnder1000(CInt(remainder))
+            result = ConvertUnder1000(remainder)
         End If
     End If
     

@@ -17,10 +17,10 @@ Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both
 
 | Function | Description | Example Output |
 |----------|-------------|----------------|
-| `VND_Vi(number)` | VND to Vietnamese | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
-| `VND_En(number)` | VND to English | "One million two hundred thirty-four thousand... Vietnamese dong" |
-| `USD_Vi(number)` | USD to Vietnamese | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
-| `USD_En(number)` | USD to English | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
+| `VND_Vi(number)` | VND to Vietnamese | "Một triệu hai trăm ba mươi bốn nghìn... đồng." |
+| `VND_En(number)` | VND to English | "One million two hundred thirty-four thousand... Vietnamese dong." |
+| `USD_Vi(number)` | USD to Vietnamese | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu." |
+| `USD_En(number)` | USD to English | "One thousand two hundred and thirty-four dollars and fifty-six cents." |
 | `So_Vi(number)` | Number to Vietnamese | Read integer without currency |
 | `So_En(number)` | Number to English | Read integer without currency |
 
@@ -39,10 +39,10 @@ Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both
 ### Usage
 
 ```excel
-=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
-=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong"
-=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
-=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
+=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng."
+=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong."
+=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu."
+=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents."
 =So_Vi(-500000)    ' "Âm năm trăm nghìn"
 ```
 
@@ -52,7 +52,7 @@ Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both
 - Excel 2021, 2019, 2016, 2013, 2010
 - Antivirus safe: Windows Defender, CrowdStrike, Trend Micro
 
-> **Pure VBA** - No Windows API calls, no external DLLs, no auto-execution.
+> **Pure VBA** - No Windows API calls, no external DLLs, no auto-popup on startup.
 
 ### Vietnamese Number Rules (Accounting Standard)
 
@@ -78,10 +78,10 @@ Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** b�
 
 | Hàm | Mô tả | Kết quả |
 |-----|-------|---------|
-| `VND_Vi(số)` | VND -> Tiếng Việt | "Một triệu hai trăm ba mươi bốn nghìn... đồng" |
-| `VND_En(số)` | VND -> Tiếng Anh | "One million two hundred thirty-four thousand... Vietnamese dong" |
-| `USD_Vi(số)` | USD -> Tiếng Việt | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu" |
-| `USD_En(số)` | USD -> Tiếng Anh | "One thousand two hundred and thirty-four dollars and fifty-six cents" |
+| `VND_Vi(số)` | VND -> Tiếng Việt | "Một triệu hai trăm ba mươi bốn nghìn... đồng." |
+| `VND_En(số)` | VND -> Tiếng Anh | "One million two hundred thirty-four thousand... Vietnamese dong." |
+| `USD_Vi(số)` | USD -> Tiếng Việt | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu." |
+| `USD_En(số)` | USD -> Tiếng Anh | "One thousand two hundred and thirty-four dollars and fifty-six cents." |
 | `So_Vi(số)` | Số -> Tiếng Việt | Đọc số nguyên không có đơn vị tiền |
 | `So_En(số)` | Số -> Tiếng Anh | Read integer without currency |
 
@@ -100,11 +100,11 @@ Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** b�
 ### Hướng dẫn sử dụng
 
 ```excel
-=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng"
-=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong"
-=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu"
-=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents"
-=VND_Vi(-500000)   ' "Âm năm trăm nghìn đồng"
+=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng."
+=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong."
+=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu."
+=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents."
+=VND_Vi(-500000)   ' "Âm năm trăm nghìn đồng."
 ```
 
 ### Tương thích
@@ -113,7 +113,7 @@ Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** b�
 - Excel 2021, 2019, 2016, 2013, 2010
 - Không bị chặn bởi: Windows Defender, CrowdStrike, Trend Micro
 
-> **Pure VBA** - Không gọi Windows API, không có DLL ngoài, không tự động chạy code.
+> **Pure VBA** - Không gọi Windows API, không có DLL ngoài, không hiện popup khi khởi động.
 
 ### Quy tắc đọc số tiếng Việt (Chuẩn kế toán)
 
@@ -158,6 +158,9 @@ Enhanced with / Cải tiến thêm:
 - M365 32/64-bit compatible
 - Pure VBA (antivirus safe)
 - One-click installer
+- Input validation & clear error messages
+- Trailing period for accounting compliance
+- No popup on Excel startup
 
 ---
 

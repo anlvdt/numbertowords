@@ -8,10 +8,7 @@ REM
 REM 1. Open Excel
 REM 2. Press Alt + F11 to open VBA Editor
 REM 3. In VBA Editor: File > Import File...
-REM 4. Import these files one by one:
-REM    - modVietnameseConverter.bas
-REM    - modEnglishConverter.bas
-REM    - modMainFunctions.bas
+REM 4. Import: modDocSoThanhChu.bas
 REM 5. In VBA Editor: File > Save [workbook name]
 REM 6. Close VBA Editor
 REM 7. In Excel: File > Save As
@@ -32,7 +29,7 @@ REM ========================================
 
 echo.
 echo ========================================
-echo   DocSoThanhChu Add-in Builder
+echo   DocSoThanhChu Add-in Builder v1.1.0
 echo ========================================
 echo.
 echo Running PowerShell build script...

@@ -47,7 +47,7 @@ On Error Goto 0
 
 ' Success message
 msg = "=== INSTALL SUCCESS ===" & vbCrLf & vbCrLf
-msg = msg & "DocSoThanhChu Add-in v1.0.5 installed!" & vbCrLf & vbCrLf
+msg = msg & "DocSoThanhChu Add-in v1.1.0 installed!" & vbCrLf & vbCrLf
 msg = msg & "NEXT STEPS:" & vbCrLf
 msg = msg & "1. Open Excel" & vbCrLf
 msg = msg & "2. File > Options > Add-ins" & vbCrLf

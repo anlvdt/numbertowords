@@ -1,5 +1,21 @@
 # Release Notes
 
+## v1.1.0 (2026-02-20)
+
+### Bug Fixes
+- **CRITICAL: Fixed CInt overflow** for numbers > 32,767 billion (changed all `Integer` to `Long`)
+- **Removed Auto_Open dialog** - No more popup every time Excel starts. Use `DocSoThanhChu_Help` macro manually.
+- **Fixed hardcoded "mười"** in `DocSo2ChuSoVi` - now uses `GetVietnameseWord("muoi")` for consistency
+
+### Improvements
+- **Input validation**: All 6 functions now check `IsNumeric()` before processing, returning clear error messages
+- **Trailing period**: Currency functions (`VND_Vi`, `VND_En`, `USD_Vi`, `USD_En`) now append `.` per Vietnamese Accounting Standards
+- **Comprehensive test suite**: `Test-AddIn.ps1` expanded from 5 to 34 test cases with edge case coverage
+- **Added LICENSE file**: MIT License (was referenced in README but missing)
+- **Updated Build-AddIn.bat**: Fixed outdated references to old separate modules
+
+---
+
 ## v1.0.5 (2026-02-06)
 
 ### What's New
