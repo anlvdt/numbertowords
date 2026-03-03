@@ -161,39 +161,42 @@ Enhanced with / Cải tiến thêm:
 - Input validation & clear error messages
 - Trailing period for accounting compliance
 - No popup on Excel startup
-
 ---
 
-## Author / Tác giả
+## Tác giả
 
 **Le Van An** (Vietnam IT)
 
-[![GitHub](https://img.shields.io/badge/GitHub-@anlvdt-181717?style=for-the-badge&logo=github)](https://github.com/anlvdt)
-[![Facebook](https://img.shields.io/badge/Facebook-Laptop%20Le%20An-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/laptopleandotcom)
+[![GitHub](https://img.shields.io/badge/GitHub-anlvdt-181717?style=for-the-badge&logo=github)](https://github.com/anlvdt)
 
----
+## Ủng hộ dự án
 
-## Support / Ủng hộ
+Nếu bạn thấy dự án hữu ích, hãy cân nhắc ủng hộ tác giả.
 
-If you find this project useful, please consider supporting the developer:
+### Chuyển khoản
 
-Nếu bạn thấy dự án này hữu ích, hãy cân nhắc ủng hộ tác giả:
+| Phương thức | Số tài khoản | Chủ tài khoản |
+|------------|-------------|---------------|
+| MB Bank | `0360126996868` | LE VAN AN |
+| Momo | `0976896621` | LE VAN AN |
 
-| Method | Account | Name |
-|--------|---------|------|
-| **MB Bank** | `0360126996868` | LE VAN AN |
-| **Momo** | `0976896621` | LE VAN AN |
+### Shopee Affiliate
 
-[![Shopee](https://img.shields.io/badge/Shopee-Laptop%20Le%20An-EE4D2D?style=for-the-badge&logo=shopee&logoColor=white)](https://collshp.com/laptopleandotcom?view=storefront)
+Mình làm Affiliate Shopee, nếu thấy sản phẩm hữu ích hãy ủng hộ mình một click nhé. Chỉ cần click không cần mua cũng được!
 
-> **Tip**: You can support by just clicking the link - no purchase required!
->
-> Bạn có thể hỗ trợ chỉ bằng cách click link - không cần mua hàng!
+[![Shopee](https://img.shields.io/badge/Shopee-EE4D2D?style=for-the-badge&logo=shopee&logoColor=white)](https://s.shopee.vn/7AYWh5NzOB)
+
+**[Xem sản phẩm trên Shopee](https://s.shopee.vn/7AYWh5NzOB)** — Xin cảm ơn!
+
+### Ủng hộ khác
+
+- Star repo trên GitHub
+- Chia sẻ dự án cho bạn bè, đồng nghiệp
+- Báo bug hoặc đề xuất tính năng mới qua Issues
+- Đóng góp code qua Pull Requests
 
 ---
 
 ## License
 
-MIT License - Free for personal and commercial use.
-
-MIT License - Tự do sử dụng cho mục đích cá nhân và thương mại.
+MIT License — Copyright (c) 2026 Le An (Vietnam IT)
