@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ─── SEO ──────────────────────────────────────────────────────────────── -->
+  <title>Đọc Số Thành Chữ Online - Chuyển Số Thành Chữ Tiếng Việt Miễn Phí</title>
+  <meta name="description" content="Công cụ đọc số thành chữ tiếng Việt và tiếng Anh miễn phí. Hỗ trợ VND, USD, chuẩn kế toán Việt Nam (Thông tư 39/2014). Không cần cài đặt, dùng ngay trên trình duyệt." />
+  <meta name="keywords" content="đọc số thành chữ, chuyển số thành chữ, doc so thanh chu, đọc số tiền VND, đọc số tiếng Việt, number to words Vietnamese, đọc số kế toán" />
+  <meta name="author" content="Le Van An - DocSoThanhChu" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://anlvdt.github.io/numbertowords/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Đọc Số Thành Chữ Online Miễn Phí - DocSoThanhChu" />
+  <meta property="og:description" content="Công cụ đọc số thành chữ tiếng Việt và tiếng Anh. Hỗ trợ VND, USD, chuẩn kế toán." />
+  <meta property="og:url" content="https://anlvdt.github.io/numbertowords/" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Đọc Số Thành Chữ Online",
+    "description": "Công cụ chuyển đổi số thành chữ tiếng Việt và tiếng Anh, hỗ trợ VND và USD.",
+    "url": "https://anlvdt.github.io/numbertowords/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND" },
+    "inLanguage": ["vi", "en"]
+  }
+  </script>
+
+  <!-- Fonts loaded via style.css @import (Inter + Lora) -->
+
+  <!-- ─── Google AdSense ────────────────────────────────────────────────────── -->
+  <!-- THAY "ca-pub-XXXXXXXXXX" bằng Publisher ID của bạn từ https://adsense.google.com -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ─── Navigation ────────────────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand" aria-label="DocSoThanhChu Home">
+      <div class="nav-logo" aria-hidden="true">₫</div>
+      <div>
+        <div class="nav-name">DocSo<span class="accent">AI</span></div>
+        <div class="nav-tagline">Đọc Số Thành Chữ</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#cong-cu" class="nav-link">Công cụ</a>
+      <a href="#huong-dan" class="nav-link">Hướng dẫn</a>
+      <a href="#vi-du" class="nav-link">Ví dụ</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener" class="nav-btn">
+        Excel Add-in ↗
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Hero ──────────────────────────────────────────────────────────────── -->
+<header class="hero" role="banner">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot" aria-hidden="true"></span>
+      Miễn phí · Không cài đặt · Chuẩn kế toán VN
+    </div>
+    <h1 class="hero-title">Đọc Số Thành Chữ<br/><em>Tiếng Việt &amp; English</em></h1>
+    <p class="hero-sub">Chuyển số tiền VND, USD thành chữ theo chuẩn kế toán Việt Nam (Thông tư 39/2014/TT-BTC). Hoạt động 100% trên trình duyệt, không cần cài đặt.</p>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Chuẩn TT39/2014</strong></div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Hỗ trợ VND &amp; USD</strong></div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Tiếng Việt &amp; English</strong></div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Bảo mật — không lưu dữ liệu</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── Ad: Top Banner ─────────────────────────────────────────────────────── -->
+<div class="ad-container ad-top" role="complementary" aria-label="Quảng cáo">
+  <!-- GOOGLE ADS — TOP LEADERBOARD 728x90 hoặc Responsive -->
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- ─── Main Tool ─────────────────────────────────────────────────────────── -->
+<main id="cong-cu" class="main-tool" role="main">
+  <div class="container tool-layout">
+
+    <!-- Tool card -->
+    <section class="tool-card" aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+        Công cụ chuyển đổi
+      </h2>
+
+      <!-- Number input -->
+      <div class="field-group">
+        <label for="number-input" class="field-label">Nhập số cần đọc</label>
+        <div class="input-row">
+          <input
+            id="number-input"
+            type="number"
+            class="number-input"
+            placeholder="Ví dụ: 1234567 hoặc 1234.56"
+            step="any"
+            autocomplete="off"
+            inputmode="decimal"
+            aria-describedby="input-hint"
+          />
+          <button id="btn-clear" class="icon-btn" title="Xóa" aria-label="Xóa input">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <p id="input-hint" class="field-hint">Hỗ trợ số dương, âm và số thập phân (cho USD)</p>
+      </div>
+
+      <!-- Options -->
+      <div class="options-wrap">
+        <div class="options-group">
+          <span class="opt-label">Ngôn ngữ</span>
+          <div class="seg-group" role="group" aria-label="Chọn ngôn ngữ">
+            <button id="lang-vi" class="seg active" data-lang="vi" aria-pressed="true">Tiếng Việt</button>
+            <button id="lang-en" class="seg" data-lang="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+        <div class="options-group">
+          <span class="opt-label">Loại</span>
+          <div class="seg-group" role="group" aria-label="Chọn loại tiền">
+            <button id="cur-vnd" class="seg active" data-cur="vnd" aria-pressed="true">VND</button>
+            <button id="cur-usd" class="seg" data-cur="usd" aria-pressed="false">USD</button>
+            <button id="cur-num" class="seg" data-cur="number" aria-pressed="false">Số</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Convert button -->
+      <button id="btn-convert" class="btn-primary" aria-live="polite">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="14.89" x2="21" y2="3"></line><path d="M6.5 3H3v3.5"></path><path d="M17.5 21H21v-3.5"></path><path d="M21 21l-8-8"></path><path d="M3 10.5V21h10.5"></path></svg>
+        <span id="btn-text">Chuyển đổi ngay</span>
+      </button>
+
+      <!-- Result -->
+      <div id="result-wrap" class="result-wrap hidden" aria-live="polite" aria-atomic="true">
+        <div class="result-header">
+          <span class="result-label">Kết quả</span>
+          <div class="result-actions">
+            <button id="btn-copy" class="chip" aria-label="Copy kết quả">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        <div id="result-text" class="result-text" role="status"></div>
+        <div id="result-meta" class="result-meta"></div>
+      </div>
+
+      <!-- Ad: In-content (between tool and batch) -->
+      <div class="ad-container ad-inline" role="complementary" aria-label="Quảng cáo">
+        <!-- GOOGLE ADS — IN-CONTENT 336x280 -->
+        <!--
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-layout="in-article"
+             data-ad-format="fluid"
+             data-ad-client="ca-pub-XXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+      </div>
+
+      <!-- Batch -->
+      <details class="batch-section" id="batch-details">
+        <summary class="batch-toggle">
+          <div style="display:flex;align-items:center;gap:6px">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+            Batch Convert — Chuyển nhiều số cùng lúc
+          </div>
+          <span class="toggle-arrow">
+            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </summary>
+        <div class="batch-body">
+          <label for="batch-input" class="field-label">Mỗi số trên một dòng (tối đa 100 số)</label>
+          <textarea
+            id="batch-input"
+            class="batch-textarea"
+            placeholder="1000000&#10;2500000&#10;9876543.21&#10;-500000"
+            rows="5"
+            aria-label="Nhập nhiều số, mỗi số trên một dòng"
+          ></textarea>
+          <button id="btn-batch" class="btn-secondary" style="display:flex;align-items:center;justify-content:center;gap:6px">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Convert tất cả
+          </button>
+          <div id="batch-results" class="batch-results" aria-live="polite"></div>
+          <div id="btn-copy-all-wrap" class="hidden">
+            <button id="btn-copy-all" class="chip">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy tất cả
+            </button>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Thông tin bổ sung">
+
+      <!-- Ad: Sidebar -->
+      <div class="ad-container ad-sidebar" role="complementary" aria-label="Quảng cáo">
+        <!-- GOOGLE ADS — SIDEBAR 300x250 -->
+        <!--
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+      </div>
+
+      <!-- Quick ref card -->
+      <div class="ref-card">
+        <h3 class="ref-title">📐 Quy tắc đọc số VN</h3>
+        <table class="ref-table" aria-label="Quy tắc đọc số tiếng Việt">
+          <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>mười</strong> (10–19)</td><td>15 → mười lăm</td></tr>
+            <tr><td><strong>mươi</strong> (2x–9x)</td><td>25 → hai mươi lăm</td></tr>
+            <tr><td><strong>mốt</strong> (×1, chục≥2)</td><td>21 → hai mươi mốt</td></tr>
+            <tr><td><strong>lăm</strong> (×5, chục≥1)</td><td>35 → ba mươi lăm</td></tr>
+            <tr><td><strong>tư</strong> (×4, chục≥2)</td><td>24 → hai mươi tư</td></tr>
+            <tr><td><strong>lẻ</strong> (chục=0, đv>0)</td><td>101 → một trăm lẻ một</td></tr>
+            <tr><td><strong>nghìn</strong> (không "ngàn")</td><td>1000 → một nghìn</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sticky sidebar ads -->
+      <div class="ad-container ad-sidebar-sticky" role="complementary" aria-label="Quảng cáo">
+        <!--
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ─── Hướng dẫn sử dụng ─────────────────────────────────────────────────── -->
+<section id="huong-dan" class="section section-alt" aria-labelledby="huong-dan-heading">
+  <div class="container">
+    <h2 id="huong-dan-heading" class="section-title">Hướng dẫn sử dụng</h2>
+    <div class="section-divider" aria-hidden="true"></div>
+    <p class="section-sub">Chỉ cần 3 bước để đọc số thành chữ</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3 class="step-title">Nhập số</h3>
+        <p class="step-desc">Nhập số vào ô <strong>"Nhập số cần đọc"</strong>. Hỗ trợ:</p>
+        <ul class="step-list">
+          <li>Số nguyên: <code>1234567</code></li>
+          <li>Số âm: <code>-500000</code></li>
+          <li>Số thập phân (USD): <code>1234.56</code></li>
+          <li>Số lớn: tối đa 999 tỷ</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3 class="step-title">Chọn định dạng</h3>
+        <p class="step-desc">Chọn ngôn ngữ và loại tiền:</p>
+        <ul class="step-list">
+          <li><strong>Ngôn ngữ:</strong> Tiếng Việt hoặc English</li>
+          <li><strong>VND:</strong> Thêm "đồng." vào cuối</li>
+          <li><strong>USD:</strong> Đọc phần xu (cents)</li>
+          <li><strong>Số:</strong> Chỉ đọc số, không đơn vị</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3 class="step-title">Copy kết quả</h3>
+        <p class="step-desc">Nhấn <strong>Chuyển đổi ngay</strong> hoặc <kbd>Enter</kbd>, sau đó:</p>
+        <ul class="step-list">
+          <li>Click <strong>📋 Copy</strong> — copy vào clipboard</li>
+          <li>Paste (Ctrl+V / ⌘+V) vào Word, Excel, hóa đơn</li>
+          <li>Dùng Batch để convert nhiều số cùng lúc</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Batch guide -->
+    <div class="guide-box">
+      <h3 class="guide-title" style="display:flex;align-items:center;gap:8px">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+        Cách dùng Batch Convert
+      </h3>
+      <div class="guide-content">
+        <div class="guide-step">
+          <strong>Bước 1:</strong> Click <em>"Batch Convert — Chuyển nhiều số cùng lúc"</em> để mở
+        </div>
+        <div class="guide-step">
+          <strong>Bước 2:</strong> Nhập danh sách số, <strong>mỗi số trên một dòng</strong>:
+          <pre class="code-block">1000000
+2500000
+9876543.21
+-500000</pre>
+        </div>
+        <div class="guide-step">
+          <strong>Bước 3:</strong> Nhấn <strong>⚡ Convert tất cả</strong>
+        </div>
+        <div class="guide-step">
+          <strong>Bước 4:</strong> Click <strong>📋 Copy tất cả</strong> để copy toàn bộ kết quả
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Ad: Mid-page ─────────────────────────────────────────────────── -->
+<div class="ad-container ad-mid" role="complementary" aria-label="Quảng cáo">
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- ─── Ví dụ ──────────────────────────────────────────────────────────────── -->
+<section id="vi-du" class="section" aria-labelledby="vi-du-heading">
+  <div class="container">
+    <h2 id="vi-du-heading" class="section-title">Ví dụ thực tế</h2>
+    <div class="section-divider" aria-hidden="true"></div>
+    <p class="section-sub">Các trường hợp thường gặp trong kế toán, tài chính, hành chính</p>
+
+    <div class="examples-grid">
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">VND → Tiếng Việt</span>
+          <span class="ex-number">1.234.567 đồng</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">Một triệu hai trăm ba mươi tư nghìn năm trăm sáu mươi bảy đồng.</div>
+      </div>
+
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">VND → English</span>
+          <span class="ex-number">1.000.000 VND</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">One million Vietnamese dong.</div>
+      </div>
+
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">USD → Tiếng Việt</span>
+          <span class="ex-number">$1,234.56</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">Một nghìn hai trăm ba mươi tư đô la Mỹ và năm mươi sáu xu.</div>
+      </div>
+
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">USD → English</span>
+          <span class="ex-number">$1,234.56</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">One thousand two hundred and thirty-four dollars and fifty-six cents.</div>
+      </div>
+
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">Số âm → Tiếng Việt</span>
+          <span class="ex-number">-500.000</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">Âm năm trăm nghìn đồng.</div>
+      </div>
+
+      <div class="example-card" role="article">
+        <div class="ex-input">
+          <span class="ex-label">Tỷ → Tiếng Việt</span>
+          <span class="ex-number">5.000.000.000</span>
+        </div>
+        <div class="ex-arrow" aria-hidden="true">→</div>
+        <div class="ex-output">Năm tỷ đồng.</div>
+      </div>
+    </div>
+
+    <!-- Try it buttons -->
+    <div class="try-buttons" aria-label="Thử ngay các ví dụ">
+      <p class="try-label">Thử ngay:</p>
+      <button class="try-btn" data-num="1234567" data-lang="vi" data-cur="vnd">1.234.567 VND →  Tiếng Việt</button>
+      <button class="try-btn" data-num="1234567" data-lang="en" data-cur="vnd">1.234.567 VND → English</button>
+      <button class="try-btn" data-num="1234.56" data-lang="vi" data-cur="usd">$1,234.56 → Tiếng Việt</button>
+      <button class="try-btn" data-num="999999999" data-lang="vi" data-cur="vnd">999.999.999 VND</button>
+      <button class="try-btn" data-num="-500000" data-lang="vi" data-cur="vnd">Số âm -500.000</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Features ──────────────────────────────────────────────────────────── -->
+<section class="section section-alt" aria-labelledby="features-heading">
+  <div class="container">
+    <h2 id="features-heading" class="section-title">Tính năng nổi bật</h2>
+    <div class="section-divider" aria-hidden="true"></div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+        <h3>Chuẩn kế toán VN</h3>
+        <p>Tuân thủ Luật Kế toán 88/2015/QH13 và Thông tư 39/2014/TT-BTC. Dùng "nghìn", "mươi/mười", "mốt/lăm/tư/lẻ" đúng chuẩn.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+        <h3>VND &amp; USD</h3>
+        <p>Hỗ trợ cả đồng Việt Nam (VND) và đô la Mỹ (USD). USD đọc cả phần xu (cents) chính xác.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+        <h3>Song ngữ Vi/En</h3>
+        <p>Chuyển đổi sang cả tiếng Việt lẫn tiếng Anh. Phù hợp cho hợp đồng và hóa đơn quốc tế.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+        <h3>Batch Convert</h3>
+        <p>Xử lý hàng trăm số cùng lúc. Dán danh sách, click và copy toàn bộ kết quả cực nhanh chóng.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+        <h3>Hoạt động offline</h3>
+        <p>Engine rule-based chạy 100% trên trình duyệt, không gửi dữ liệu lên server. Bảo mật tuyệt đối dữ liệu.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+        <h3>Excel Add-in</h3>
+        <p>Dùng trực tiếp trong Excel với hàm <code>=DOCSO.VND_VI(A1)</code>. Hỗ trợ cả trên Mac và Windows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+<section id="faq" class="section" aria-labelledby="faq-heading">
+  <div class="container">
+    <h2 id="faq-heading" class="section-title">Câu hỏi thường gặp</h2>
+    <div class="section-divider" aria-hidden="true"></div>
+    <div class="faq-list" role="list">
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Công cụ này có miễn phí không?</summary>
+        <div class="faq-a">Hoàn toàn miễn phí, không giới hạn số lần sử dụng, không cần đăng ký. Engine xử lý ngay trên trình duyệt của bạn.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Dữ liệu của tôi có bị lưu lại không?</summary>
+        <div class="faq-a">Không. Toàn bộ quá trình xử lý diễn ra trên trình duyệt (JavaScript) — không có dữ liệu nào được gửi về server. Bạn có thể dùng offline sau khi tải trang xong.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Tại sao dùng "nghìn" mà không phải "ngàn"?</summary>
+        <div class="faq-a">Theo chuẩn kế toán Việt Nam (Thông tư 39/2014/TT-BTC), các chứng từ tài chính phải dùng "nghìn" thay vì "ngàn". Công cụ này tuân thủ đúng quy định này.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Số tối đa là bao nhiêu?</summary>
+        <div class="faq-a">Hỗ trợ tối đa 999.999.999.999 (999 tỷ). Vượt quá giới hạn này sẽ hiển thị thông báo lỗi.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Cách đọc số USD có phần xu như thế nào?</summary>
+        <div class="faq-a">Nhập số thập phân, ví dụ <code>1234.56</code>. Phần trước dấu chấm là đô la, phần sau là xu (cents). Công cụ sẽ hiển thị đầy đủ "... đô la Mỹ và 56 xu." hoặc "... dollars and fifty-six cents."</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Có phiên bản Excel Add-in không?</summary>
+        <div class="faq-a">Có! <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener" class="link">DocSoThanhChu Excel Add-in</a> hỗ trợ Mac và Windows, cho phép dùng hàm <code>=DOCSO.VND_VI(A1)</code> trực tiếp trong ô. Xem hướng dẫn trên GitHub.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Batch Convert hoạt động như thế nào?</summary>
+        <div class="faq-a">Mở mục "Batch Convert", nhập danh sách số (mỗi số trên một dòng), nhấn "Convert tất cả". Tối đa 100 số mỗi lần. Kết quả hiển thị ngay và có thể copy tất cả.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Ad: Bottom Banner ───────────────────────────────────────────────────── -->
+<div class="ad-container ad-bottom" role="complementary" aria-label="Quảng cáo">
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- ─── Footer ────────────────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      DocSoThanhChu AI <span>— Đọc số thành chữ tiếng Việt &amp; English</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener">GitHub</a>
+      <a href="#huong-dan">Hướng dẫn</a>
+      <a href="#vi-du">Ví dụ</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-copy">© 2026 Le Van An · MIT License · Chuẩn TT39/2014</div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script src="converter.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

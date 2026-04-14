@@ -1,202 +1,94 @@
-# DocSoThanhChu - Excel Add-in
+# DocSoThanhChu AI
 
-[![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/excel)
-[![VBA](https://img.shields.io/badge/VBA-867DB0?style=for-the-badge&logo=visual-basic&logoColor=white)](https://docs.microsoft.com/office/vba/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/anlvdt/numbertowords?style=for-the-badge)](https://github.com/anlvdt/numbertowords/releases)
-
-**English** | [Tiếng Việt](#tiếng-việt)
+A professional Excel Add-in and Web Tool for converting numbers to Vietnamese/English words.
+Công cụ đọc số thành chữ tiếng Việt/Anh chuyên nghiệp dành cho Excel và Web.
 
 ---
 
-## English
+## 1. Introduction / Giới thiệu
 
-Excel Add-in to convert numbers to words, supporting **VND** and **USD** in both **Vietnamese** and **English**. Perfect for accounting, invoices, and financial documents.
+**[ENG]** DocSoThanhChu AI is an enterprise-grade utility that converts numerical values into written words based on Vietnamese accounting standards and English grammar. Version 2.0 introduces an AI-powered engine (Llama-3 via Groq) alongside the high-precision rule-based core. It supports cross-platform Microsoft Excel (Windows, macOS, Web).
 
-### Features
+**[VIE]** DocSoThanhChu AI là một tiện ích cấp doanh nghiệp giúp chuyển đổi số liệu thành chữ theo đúng chuẩn kế toán Việt Nam và ngữ pháp tiếng Anh. Phiên bản 2.0 tích hợp động cơ AI (Llama-3 qua Groq) cùng với lõi xử lý thuật toán tĩnh độ chính xác cực cao. Hỗ trợ đa nền tảng trên Microsoft Excel (Windows, macOS, Web).
 
-| Function | Description | Example Output |
-|----------|-------------|----------------|
-| `VND_Vi(number)` | VND to Vietnamese | "Một triệu hai trăm ba mươi bốn nghìn... đồng." |
-| `VND_En(number)` | VND to English | "One million two hundred thirty-four thousand... Vietnamese dong." |
-| `USD_Vi(number)` | USD to Vietnamese | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu." |
-| `USD_En(number)` | USD to English | "One thousand two hundred and thirty-four dollars and fifty-six cents." |
-| `So_Vi(number)` | Number to Vietnamese | Read integer without currency |
-| `So_En(number)` | Number to English | Read integer without currency |
+## 2. Core Features / Tính năng cốt lõi
 
-### Installation
+**[ENG]**
+- Highest Precision: Zero float-point errors natively found in JS/VBA banker's rounding.
+- Cross-platform Add-in: Works natively on Excel for Mac, Windows, and Excel Online.
+- Bilingual Support: Outputs results in Vietnamese and English.
+- Multi-currency: Supports VND (Vietnam Dong), USD (US Dollar), and plain numbers.
+- AI Mode: Natural Language Processing fallback using Groq Llama-3.1 API.
+- Offline Capability: Falls back automatically to the rule-based local core if AI limits are reached or internet drops.
 
-**Option 1: One-Click Install**
-1. Download `DocSoThanhChu.xlam` and `Install.vbs` from [Releases](https://github.com/anlvdt/numbertowords/releases)
-2. Double-click `Install.vbs`
-3. Open Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+**[VIE]**
+- Độ Chính Xác Tuyệt Đối: Loại bỏ hoàn toàn lỗi làm tròn số thập phân thường gặp trong cấu trúc JS/VBA.
+- Add-in Toàn Diện: Hoạt động trơn tru trên Excel for Mac, Windows và Excel Online.
+- Hỗ Trợ Song Ngữ: Xuất kết quả bằng Tiếng Việt hoặc Tiếng Anh.
+- Đa Ngoại Tệ: Hỗ trợ VND, USD và số đếm thông thường.
+- AI Mode: Tích hợp chế độ xử lý bằng ngôn ngữ tự nhiên thông qua API Groq Llama-3.1.
+- Tính Năng Ngoại Tuyến: Tự động chuyển về lõi tính toán Local thuần túy nếu mất mạng lưới Internet hoặc hết hạn định mức AI.
 
-**Option 2: Manual Install**
-1. Download `DocSoThanhChu.xlam`
-2. Copy to `%APPDATA%\Microsoft\AddIns\`
-3. Open Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+## 3. Installation / Hướng dẫn Cài đặt
 
-### Usage
+### Option 1: Modern Web Add-in (Mac / Windows / Web)
 
-```excel
-=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng."
-=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong."
-=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu."
-=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents."
-=So_Vi(-500000)    ' "Âm năm trăm nghìn"
-```
+The recommended approach for modern Office 365 environments.
+Cách cài đặt khuyến nghị cho mọi môi trường Office 365 hiện đại.
 
-### Compatibility
+**[ENG]** 
+1. Open Excel -> Insert Menu -> Get Add-ins -> My Add-ins.
+2. If running locally, execute `install-mac.sh` (Mac) or `install-win.bat` (Windows) in the `web-addin` folder to mount the sideload manifest.
+3. Access the "DocSo AI" pane via the Home ribbon to use the Conversion tool or set the AI API Key.
 
-- Microsoft 365 (32-bit & 64-bit)
-- Excel 2021, 2019, 2016, 2013, 2010
-- Antivirus safe: Windows Defender, CrowdStrike, Trend Micro
+**[VIE]**
+1. Mở Excel -> Menu Insert -> Get Add-ins -> My Add-ins.
+2. Nếu khởi chạy local, bật script `install-mac.sh` (Mac) hoặc `install-win.bat` (Windows) trong thư mục `web-addin` để tải manifest vào hệ thống.
+3. Chọn "DocSo AI" trên thanh công cụ Home để mở hộp thoại chuyển đổi hoặc nhập API Key.
 
-> **Pure VBA** - No Windows API calls, no external DLLs, no auto-popup on startup.
+### Option 2: Legacy VBA Script (.xlam)
 
-### Vietnamese Number Rules (Accounting Standard)
+**[ENG]** For older versions of Microsoft Windows Excel. Load `DocSoThanhChu.xlam` from the Developer Add-ins tab.
+**[VIE]** Dành cho các phiên bản Microsoft Excel Windows cũ. Cài đặt file `DocSoThanhChu.xlam` thông qua tab Developer Add-ins.
 
-Compliant with Vietnamese Accounting Law 88/2015/QH13, Circular 39/2014/TT-BTC:
+## 4. Excel Functions / Hàm Excel Hỗ Trợ
 
-| Rule | Condition | Example |
-|------|-----------|---------|
-| **mười** | Numbers 10-19 | 15 -> mười lăm |
-| **mươi** | Tens digit >= 2 | 25 -> hai mươi lăm |
-| **mốt** | Units = 1, tens >= 2 | 21 -> hai mươi mốt |
-| **lăm** | Units = 5, tens >= 1 | 15 -> mười lăm |
-| **tư** | Units = 4, tens >= 2 | 24 -> hai mươi tư |
-| **lẻ** | Tens = 0, units > 0 | 101 -> một trăm lẻ một |
-| **nghìn** | Standard (currency) | 1000 -> một nghìn |
+Once installed, use these functions directly within a spreadsheet cell:
+Sau khi cài đặt xong, hãy gọi các hàm này trực tiếp trong một ô tính của Excel:
 
----
+| Syntax / Cú pháp | Description / Mô tả |
+|-------------------|---------------------|
+| `=DOCSO.VND_VI(A1)` | VND -> Vietnamese (Tiếng Việt) |
+| `=DOCSO.VND_EN(A1)` | VND -> English (Tiếng Anh) |
+| `=DOCSO.USD_VI(A1)` | USD -> Vietnamese (Tiếng Việt) |
+| `=DOCSO.USD_EN(A1)` | USD -> English (Tiếng Anh) |
+| `=DOCSO.SO_VI(A1)`  | Number -> Vietnamese (Số thuần) |
+| `=DOCSO.SO_EN(A1)`  | Number -> English (Số thuần) |
+| `=DOCSO.AI_SO(A1, "vi", "vnd")` | AI Dynamic conversion / Chuyển đổi AI tùy biến |
 
-## Tiếng Việt
+## 5. Web Online Tool / Công cụ Trực tuyến
 
-Add-in Excel đọc số tiền thành chữ, hỗ trợ **VND** và **USD** bằng **tiếng Việt** và **tiếng Anh**. Phù hợp cho kế toán, hóa đơn, và chứng từ tài chính.
+**[ENG]** A standalone web version is available in the `/docs` directory. It uses the exact same computation core without requiring Excel.
+**[VIE]** Phiên bản độc lập trên nền tảng trình duyệt web được lưu trữ tại thư mục `/docs`. Dùng chung một lõi tính toán siêu tốc độ mà không yêu cầu cài đặt Excel.
 
-### Tính năng
+Features: Batch conversion, one-click copy, and zero latency.
+Tính năng: Chuyển đổi hàng loạt, copy nhanh, độ trễ tiệm cận 0ms.
 
-| Hàm | Mô tả | Kết quả |
-|-----|-------|---------|
-| `VND_Vi(số)` | VND -> Tiếng Việt | "Một triệu hai trăm ba mươi bốn nghìn... đồng." |
-| `VND_En(số)` | VND -> Tiếng Anh | "One million two hundred thirty-four thousand... Vietnamese dong." |
-| `USD_Vi(số)` | USD -> Tiếng Việt | "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu." |
-| `USD_En(số)` | USD -> Tiếng Anh | "One thousand two hundred and thirty-four dollars and fifty-six cents." |
-| `So_Vi(số)` | Số -> Tiếng Việt | Đọc số nguyên không có đơn vị tiền |
-| `So_En(số)` | Số -> Tiếng Anh | Read integer without currency |
+## 6. AI Configuration / Cấu hình AI
 
-### Cài đặt
+**[ENG]** To use the `AI_SO` functions, obtain a free Groq API key:
+1. Visit console.groq.com.
+2. Create an API key (`gsk_...`).
+3. Open the Add-in Taskpane in Excel, navigate to settings, and save your Key.
+*Rate limits: The free tier allows 14,400 requests per day.*
 
-**Cách 1: One-Click (khuyên dùng)**
-1. Tải `DocSoThanhChu.xlam` và `Install.vbs` từ [Releases](https://github.com/anlvdt/numbertowords/releases)
-2. Double-click file `Install.vbs`
-3. Mở Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+**[VIE]** Để sử dụng hàm AI nâng cao `AI_SO`, bạn cần yêu cầu cung cấp API key miễn phí tại Groq:
+1. Truy cập console.groq.com.
+2. Tạo mã API Key nội bộ (Bắt đầu với `gsk_...`).
+3. Mở bảng Add-in Taskpane trên Excel, thiết lập tab Cài đặt để lưu Key của bạn.
+*Định mức: Gói chuẩn hệ điều hành miễn phí cho phép xử lý vượt nhịp 14,400 tác vụ/ngày.*
 
-**Cách 2: Thủ công**
-1. Tải `DocSoThanhChu.xlam`
-2. Copy vào `%APPDATA%\Microsoft\AddIns\`
-3. Mở Excel > File > Options > Add-ins > Go... > Check "DocSoThanhChu" > OK
+## 7. License / Bản quyền
 
-### Hướng dẫn sử dụng
-
-```excel
-=VND_Vi(A1)        ' 1234567 -> "Một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy đồng."
-=VND_En(A1)        ' 1234567 -> "One million... Vietnamese dong."
-=USD_Vi(1234.56)   ' "Một nghìn hai trăm ba mươi bốn đô la Mỹ và năm mươi sáu xu."
-=USD_En(1234.56)   ' "One thousand two hundred and thirty-four dollars and fifty-six cents."
-=VND_Vi(-500000)   ' "Âm năm trăm nghìn đồng."
-```
-
-### Tương thích
-
-- Microsoft 365 (32-bit & 64-bit)
-- Excel 2021, 2019, 2016, 2013, 2010
-- Không bị chặn bởi: Windows Defender, CrowdStrike, Trend Micro
-
-> **Pure VBA** - Không gọi Windows API, không có DLL ngoài, không hiện popup khi khởi động.
-
-### Quy tắc đọc số tiếng Việt (Chuẩn kế toán)
-
-Tuân thủ Luật Kế toán 88/2015/QH13, Thông tư 39/2014/TT-BTC:
-
-| Quy tắc | Điều kiện | Ví dụ |
-|---------|-----------|-------|
-| **mười** | Số 10-19 | 15 -> mười lăm |
-| **mươi** | Hàng chục >= 2 | 25 -> hai mươi lăm |
-| **mốt** | Đơn vị = 1, chục >= 2 | 21 -> hai mươi mốt |
-| **lăm** | Đơn vị = 5, chục >= 1 | 15 -> mười lăm |
-| **tư** | Đơn vị = 4, chục >= 2 | 24 -> hai mươi tư |
-| **lẻ** | Chục = 0, đơn vị > 0 | 101 -> một trăm lẻ một |
-| **nghìn** | Chuẩn trên tiền tệ | 1000 -> một nghìn (không dùng "ngàn") |
-
----
-
-## Build from Source / Tạo từ mã nguồn
-
-```bash
-git clone https://github.com/anlvdt/numbertowords.git
-cd numbertowords
-
-# Build using PowerShell
-.\Build-AddIn.ps1
-
-# Test
-.\Test-AddIn.ps1
-```
-
----
-
-## Reference / Tham khảo
-
-Based on / Dựa trên:
-- [Đọc số thành chữ bằng Add-in - Học Excel Online](https://blog.hocexcel.online/doc-so-thanh-chu-bang-add-in-tu-hoc-excel-online.html) - **Nguyễn Đức Thanh**
-
-Enhanced with / Cải tiến thêm:
-- VND + USD support
-- Vietnamese + English output
-- Shortened function names (VND_Vi, VND_En, etc.)
-- M365 32/64-bit compatible
-- Pure VBA (antivirus safe)
-- One-click installer
-- Input validation & clear error messages
-- Trailing period for accounting compliance
-- No popup on Excel startup
----
-
-## Tác giả
-
-**Le Van An** (Vietnam IT)
-
-[![GitHub](https://img.shields.io/badge/GitHub-anlvdt-181717?style=for-the-badge&logo=github)](https://github.com/anlvdt)
-
-## Ủng hộ dự án
-
-Nếu bạn thấy dự án hữu ích, hãy cân nhắc ủng hộ tác giả.
-
-### Chuyển khoản
-
-| Phương thức | Số tài khoản | Chủ tài khoản |
-|------------|-------------|---------------|
-| MB Bank | `0360126996868` | LE VAN AN |
-| Momo | `0976896621` | LE VAN AN |
-
-### Shopee Affiliate
-
-Mình làm Affiliate Shopee, nếu thấy sản phẩm hữu ích hãy ủng hộ mình một click nhé. Chỉ cần click không cần mua cũng được!
-
-[![Shopee](https://img.shields.io/badge/Shopee-EE4D2D?style=for-the-badge&logo=shopee&logoColor=white)](https://s.shopee.vn/7AYWh5NzOB)
-
-**[Xem sản phẩm trên Shopee](https://s.shopee.vn/7AYWh5NzOB)** — Xin cảm ơn!
-
-### Ủng hộ khác
-
-- Star repo trên GitHub
-- Chia sẻ dự án cho bạn bè, đồng nghiệp
-- Báo bug hoặc đề xuất tính năng mới qua Issues
-- Đóng góp code qua Pull Requests
-
----
-
-## License
-
-MIT License — Copyright (c) 2026 Le An (Vietnam IT)
+MIT License. See LICENSE file for details.
+Giấy phép hoạt động MIT. Tham khảo tệp định dạng LICENSE để nắm bắt chi tiết.

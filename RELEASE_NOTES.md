@@ -1,5 +1,43 @@
 # Release Notes
 
+## v2.1.0 (2026-04-14)
+
+### 🎨 Major: Enterprise UI/UX Unification & Rebranding
+- **Notion + Wise Design System**: Replaced the legacy dark mode in the Excel Taskpane with a bright, minimalist "Warm White & Finance Green" UI, matching the Web version precisely.
+- **Emoji-Free Professionalism**: Removed all emojis (`✅`, `🤖`, `⚡`, `⭐`) across the UI, toast notifications, and AI fallback logic. Rendered a pure SVG `₫` icon to replace raster graphics.
+- **Micro-interactions**: Added 250ms CSS standard transitions, hover-lifts, and refined loading spinners for immediate feedback.
+- **Repository Optimization**: Deep cleaned the root directory, isolating legacy scripts to `legacy-vba/` and finalizing deployment structures for production.
+
+---
+## v2.0.0 (2026-04-14)
+
+### 🚀 New: Office.js Web Add-in (Mac + Windows + Excel Online)
+- **Cross-platform**: chạy trên Excel macOS, Windows, và Excel Online
+- **Custom Functions**: `=DOCSO.VND_VI()`, `=DOCSO.VND_EN()`, `=DOCSO.USD_VI()`, `=DOCSO.USD_EN()`, `=DOCSO.SO_VI()`, `=DOCSO.SO_EN()`
+- **AI Mode**: `=DOCSO.AI_SO(number, lang, currency)` — Gemini Flash API, fallback tự động về rule-based
+- **Task Pane UI**: dark mode, convert nhanh, batch convert, insert-to-cell, AI toggle
+- **Shared Runtime**: Task Pane và Custom Functions dùng chung JS context → API key nhập 1 lần, dùng được trong cả cell formula
+
+### Bug Fixes (VBA v1.1.0 → v1.1.1)
+- **FIXED floating-point decimal**: `USD_Vi`/`USD_En` chuyển sang integer arithmetic (`Math.round(n*100) mod 100`) để tránh precision loss khi tính xu/cents
+- **FIXED array cache**: `GetSoTiengViet()` nay cache kết quả vào module-level variable, không rebuild array mỗi lần gọi
+- **FIXED README**: "no auto-popup on startup" → "no popup after first use" (chính xác hơn — `Auto_Open` vẫn hiện popup lần đầu)
+
+### Structure
+```
+numbertowords-1/
+├── vba/                  ← Legacy Windows-only VBA (patched)
+│   └── modDocSoThanhChu.bas
+└── web-addin/            ← NEW: Office.js (Mac + Win + Web)
+    ├── manifest.xml
+    ├── src/core/converter.js
+    ├── src/core/ai-client.js
+    ├── src/functions/functions.js
+    └── src/taskpane/
+```
+
+---
+
 ## v1.1.0 (2026-02-20)
 
 ### Bug Fixes

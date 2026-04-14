@@ -26,6 +26,10 @@ Private Const EN_CENTS As String = "cents"
 Private Const EN_CENT As String = "cent"
 Private Const EN_DOLLAR As String = "dollar"
 
+' --- MODULE-LEVEL CACHE (performance: GetSoTiengViet rebuilt once, not per call) ---
+Private m_arrSo As Variant
+Private m_arrSoLoaded As Boolean
+
 ' =====================================================
 ' AUTO OPEN - Show welcome dialog on FIRST USE only
 ' Uses VBA SaveSetting/GetSetting (registry-based, AV-safe)
@@ -140,8 +144,12 @@ Public Function USD_Vi(ByVal soTien As Variant) As String
     Dim nguyen As Double, le As Long
     Dim kq As String, kqLe As String
     
-    nguyen = Fix(CDbl(soTien))
-    le = CLng(Round((CDbl(soTien) - nguyen) * 100, 0))
+    ' FIXED: use integer arithmetic to avoid floating-point precision trap
+    ' e.g. (1.1 - 1) * 100 = 9.99999... instead of 10
+    Dim totalCents As Long
+    totalCents = CLng(Round(CDbl(soTien) * 100, 0))
+    nguyen = Fix(totalCents / 100)
+    le = totalCents Mod 100
     
     kq = DocSoNguyenVi(nguyen)
     
@@ -182,8 +190,11 @@ Public Function USD_En(ByVal amount As Variant) As String
     Dim result As String, centsResult As String
     Dim dollarUnit As String, centUnit As String
     
-    integerPart = Fix(CDbl(amount))
-    decimalPart = CLng(Round((CDbl(amount) - integerPart) * 100, 0))
+    ' FIXED: use integer arithmetic to avoid floating-point precision trap
+    Dim totalCentsEn As Long
+    totalCentsEn = CLng(Round(CDbl(amount) * 100, 0))
+    integerPart = Fix(totalCentsEn / 100)
+    decimalPart = totalCentsEn Mod 100
     
     If integerPart = 1 Then
         dollarUnit = EN_DOLLAR
@@ -295,10 +306,15 @@ Private Function GetVietnameseWord(ByVal word As String) As String
 End Function
 
 Private Function GetSoTiengViet() As Variant
-    GetSoTiengViet = Array(GetVietnameseWord("khong"), GetVietnameseWord("mot"), _
-        GetVietnameseWord("hai"), GetVietnameseWord("ba"), GetVietnameseWord("bon"), _
-        GetVietnameseWord("nam"), GetVietnameseWord("sau"), GetVietnameseWord("bay"), _
-        GetVietnameseWord("tam"), GetVietnameseWord("chin"))
+    ' Cache array on first call to avoid rebuilding on every invocation
+    If Not m_arrSoLoaded Then
+        m_arrSo = Array(GetVietnameseWord("khong"), GetVietnameseWord("mot"), _
+            GetVietnameseWord("hai"), GetVietnameseWord("ba"), GetVietnameseWord("bon"), _
+            GetVietnameseWord("nam"), GetVietnameseWord("sau"), GetVietnameseWord("bay"), _
+            GetVietnameseWord("tam"), GetVietnameseWord("chin"))
+        m_arrSoLoaded = True
+    End If
+    GetSoTiengViet = m_arrSo
 End Function
 
 Private Function DocSo2ChuSoVi(ByVal so As Long) As String

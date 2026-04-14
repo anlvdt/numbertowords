@@ -1,0 +1,107 @@
+{
+  "functions": [
+    {
+      "id": "VND_VI",
+      "name": "VND_VI",
+      "description": "Đọc số tiền VND thành chữ tiếng Việt (chuẩn kế toán)",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "Số tiền VND cần đọc",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "VND_EN",
+      "name": "VND_EN",
+      "description": "Convert VND amount to English words",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "VND amount",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "USD_VI",
+      "name": "USD_VI",
+      "description": "Đọc số tiền USD thành chữ tiếng Việt (hỗ trợ 2 chữ số thập phân)",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "Số tiền USD",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "USD_EN",
+      "name": "USD_EN",
+      "description": "Convert USD amount to English words (supports cents)",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "USD amount",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "SO_VI",
+      "name": "SO_VI",
+      "description": "Đọc số nguyên thành chữ tiếng Việt (không có đơn vị tiền)",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "Số cần đọc",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "SO_EN",
+      "name": "SO_EN",
+      "description": "Convert a number to English words (no currency)",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "Number to convert",
+          "type": "number"
+        }
+      ],
+      "result": { "type": "string" }
+    },
+    {
+      "id": "AI_SO",
+      "name": "AI_SO",
+      "description": "AI-powered number-to-words (Gemini Flash). Cần cấu hình API key trong Task Pane.",
+      "parameters": [
+        {
+          "name": "number",
+          "description": "Số cần đọc",
+          "type": "number"
+        },
+        {
+          "name": "lang",
+          "description": "Ngôn ngữ: vi (mặc định) hoặc en",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "currency",
+          "description": "Loại: vnd (mặc định), usd, hoặc number",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "result": { "type": "string" }
+    }
+  ]
+}

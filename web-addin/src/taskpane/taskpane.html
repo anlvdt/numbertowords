@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DocSoThanhChu AI — Đọc số thành chữ tiếng Việt và tiếng Anh cho Excel" />
+  <title>DocSo AI — Đọc Số Thành Chữ</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Office.js — MUST be first script -->
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+  <!-- Core engine -->
+  <script src="../core/converter.js"></script>
+  <script src="../core/ai-client.js"></script>
+
+  <!-- Custom Functions registration (shared runtime: runs in same context) -->
+  <script src="../functions/functions.js"></script>
+
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+
+<!-- ─── Header ─────────────────────────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-brand">
+    <div class="brand-icon" style="color: white; background: var(--teal); font-weight: 800; font-size: 16px;">
+      ₫
+    </div>
+    <div>
+      <h1 class="brand-name">DocSo <span class="brand-ai">AI</span></h1>
+      <p class="brand-version">v2.0 · Excel Add-in</p>
+    </div>
+  </div>
+  <button id="btn-settings" class="icon-btn" title="Cài đặt API Key" aria-label="Settings">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    </svg>
+  </button>
+</header>
+
+<!-- ─── Main ────────────────────────────────────────────────────────────────── -->
+<main class="main">
+
+  <!-- Input card -->
+  <div class="card">
+    <label class="field-label" for="input-number">Nhập số</label>
+    <div class="input-row">
+      <input
+        id="input-number"
+        type="number"
+        class="number-input"
+        placeholder="ví dụ: 1234567"
+        step="any"
+        autocomplete="off"
+        aria-label="Số cần đọc"
+      />
+      <button id="btn-clear" class="icon-btn small" title="Xóa" aria-label="Clear input">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Options row -->
+    <div class="options-row">
+      <div class="seg-group" role="group" aria-label="Ngôn ngữ">
+        <button id="lang-vi" class="seg active" data-lang="vi">Tiếng Việt</button>
+        <button id="lang-en" class="seg" data-lang="en">English</button>
+      </div>
+      <div class="seg-group" role="group" aria-label="Loại tiền">
+        <button id="cur-vnd" class="seg active" data-cur="vnd">VND</button>
+        <button id="cur-usd" class="seg" data-cur="usd">USD</button>
+        <button id="cur-num" class="seg" data-cur="number">Số</button>
+      </div>
+    </div>
+
+    <!-- AI Toggle -->
+    <div class="ai-toggle-row">
+      <div class="ai-badge" id="ai-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>AI Mode</span>
+      </div>
+      <label class="toggle" for="ai-toggle" aria-label="Bật/tắt AI mode">
+        <input type="checkbox" id="ai-toggle" role="switch" />
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+        </span>
+      </label>
+    </div>
+
+    <!-- Convert button -->
+    <button id="btn-convert" class="btn-primary">
+      <span id="btn-convert-text">Chuyển đổi</span>
+      <span id="btn-convert-spinner" class="spinner hidden" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Result card -->
+  <div class="card result-card hidden" id="result-card">
+    <div class="result-header">
+      <span class="field-label">Kết quả</span>
+      <div class="result-actions">
+        <button id="btn-copy" class="chip-btn" title="Copy">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+        <button id="btn-insert" class="chip-btn accent" title="Chèn vào ô đang chọn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Insert
+        </button>
+      </div>
+    </div>
+    <div id="result-text" class="result-text" aria-live="polite"></div>
+    <div id="result-source" class="result-source"></div>
+  </div>
+
+  <!-- Batch card -->
+  <details class="card batch-card" id="batch-details">
+    <summary class="batch-summary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Batch Convert
+      <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="batch-body">
+      <label class="field-label small" for="batch-input">Mỗi số trên một dòng</label>
+      <textarea id="batch-input" class="batch-textarea" placeholder="1000000&#10;2500000&#10;9876543.21" rows="4"></textarea>
+      <button id="btn-batch" class="btn-secondary">Batch Convert</button>
+      <div id="batch-results" class="batch-results"></div>
+    </div>
+  </details>
+
+</main>
+
+<!-- ─── Settings Drawer ──────────────────────────────────────────────────────── -->
+<div id="settings-overlay" class="overlay hidden"></div>
+<aside id="settings-drawer" class="drawer hidden" role="dialog" aria-label="Cài đặt" aria-modal="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Cài đặt AI</h2>
+    <button id="btn-close-settings" class="icon-btn" aria-label="Đóng">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <div class="info-box">
+      <strong>Groq API — Hoàn toàn miễn phí</strong><br/>
+      Không cần thẻ tín dụng · <strong>14,400 req/ngày</strong> · Model <code>llama-3.1-8b-instant</code><br/><br/>
+      <strong>Cách lấy key (30 giây):</strong><br/>
+      1. Vào <a href="https://console.groq.com" target="_blank" class="link">console.groq.com</a> → Sign up / Google<br/>
+      2. Click <strong>API Keys</strong> → <strong>Create API Key</strong><br/>
+      3. Copy key bắt đầu bằng <code>gsk_...</code><br/>
+      4. Paste vào ô bên dưới → Lưu
+    </div>
+    <label class="field-label" for="api-key-input">Groq API Key (bắt đầu bằng gsk_...)</label>
+    <div class="key-input-row">
+      <input
+        id="api-key-input"
+        type="password"
+        class="number-input"
+        placeholder="AIzaSy..."
+        autocomplete="off"
+        aria-label="Gemini API Key"
+      />
+      <button id="btn-toggle-key" class="icon-btn small" title="Show/hide key" aria-label="Toggle visibility">
+        <svg id="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+    <div id="api-key-status" class="key-status"></div>
+    <button id="btn-save-key" class="btn-primary" style="margin-top:8px">Lưu Groq API Key</button>
+    <button id="btn-clear-key" class="btn-ghost" style="margin-top:6px">Xóa key</button>
+
+    <div class="drawer-section-title">Giới hạn miễn phí Groq</div>
+    <div class="limit-grid">
+      <span class="limit-label">llama-3.1-8b-instant</span><span class="limit-val">14,400 req/ngày</span>
+      <span class="limit-label">llama-3.3-70b-versatile</span><span class="limit-val">1,000 req/ngày</span>
+      <span class="limit-label">Tốc độ</span><span class="limit-val">~500 token/s</span>
+    </div>
+
+    <div class="drawer-section-title">Hàm Excel (dùng trong cell)</div>
+    <div class="formula-grid">
+      <code class="formula">=DOCSO.VND_VI(A1)</code><span class="formula-desc">VND → Tiếng Việt</span>
+      <code class="formula">=DOCSO.VND_EN(A1)</code><span class="formula-desc">VND → English</span>
+      <code class="formula">=DOCSO.USD_VI(A1)</code><span class="formula-desc">USD → Tiếng Việt</span>
+      <code class="formula">=DOCSO.USD_EN(A1)</code><span class="formula-desc">USD → English</span>
+      <code class="formula">=DOCSO.SO_VI(A1)</code><span class="formula-desc">Số → Tiếng Việt</span>
+      <code class="formula">=DOCSO.SO_EN(A1)</code><span class="formula-desc">Số → English</span>
+      <code class="formula">=DOCSO.AI_SO(A1,"vi","vnd")</code><span class="formula-desc">AI mode</span>
+    </div>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script src="taskpane.js"></script>
+</body>
+</html>

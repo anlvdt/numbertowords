@@ -1,0 +1,17 @@
+{
+  "name": "docso-web-addin",
+  "version": "2.1.0",
+  "description": "DocSoThanhChu AI — Excel Web Add-in, Mac + Windows",
+  "author": "Le Van An <anlvdt@github>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "validate": "office-addin-manifest validate manifest.xml"
+  },
+  "devDependencies": {
+    "express": "^4.18.2",
+    "office-addin-dev-certs": "^1.11.5",
+    "office-addin-manifest": "^1.8.5"
+  }
+}
