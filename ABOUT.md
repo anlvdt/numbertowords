@@ -2,7 +2,7 @@
 
 **Short Description (for GitHub About):**
 
-Excel Add-in + Web Tool to convert numbers to words (VND/USD) in Vietnamese and English. AI mode via Groq Llama-3. Compliant with Vietnamese Accounting Standards.
+Excel Add-in + Web Tool: convert numbers to words (VND/USD) in Vietnamese and English. AI (Groq) optional on Excel Office.js only. Web uses rule-based engine.
 
 **Topics/Tags:**
 

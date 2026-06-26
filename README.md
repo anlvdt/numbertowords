@@ -1,36 +1,41 @@
-# DocSoThanhChu AI
+# DocSoThanhChu
 
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/excel)
 [![Office.js](https://img.shields.io/badge/Office.js-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/office/dev/add-ins/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![GitHub Release](https://img.shields.io/github/v/release/anlvdt/numbertowords?style=for-the-badge)](https://github.com/anlvdt/numbertowords/releases)
 
-Công cụ đọc số thành chữ tiếng Việt/Anh chuyên nghiệp — Excel Add-in, Web Tool, và AI Mode.
+Công cụ đọc số thành chữ tiếng Việt/Anh — Web Tool, Excel Add-in (VBA + Office.js), AI tùy chọn trên Excel.
 
-**Live demo:** [anlvdt.github.io/numbertowords](https://anlvdt.github.io/numbertowords/)
-
----
-
-## Giới thiệu / Introduction
-
-**[VIE]** DocSoThanhChu AI chuyển đổi số liệu thành chữ theo chuẩn kế toán Việt Nam và ngữ pháp tiếng Anh. Phiên bản 2.x tích hợp động cơ AI (Llama-3 qua Groq) cùng lõi rule-based độ chính xác cao. Hỗ trợ Excel (Windows, macOS, Web) và công cụ web độc lập.
-
-**[ENG]** Enterprise-grade number-to-words utility with Vietnamese accounting standards compliance. Version 2.x adds Groq Llama-3 AI alongside a high-precision rule-based core. Cross-platform Excel (Windows, macOS, Web) and standalone web tool.
-
-> **Lưu ý:** Repo `docsothanhchu` đã gộp vào đây (2026-06). Mã VBA nằm tại `legacy-vba/`.
+**Web:** [anlvdt.github.io/numbertowords](https://anlvdt.github.io/numbertowords/) · **Mã nguồn:** MIT
 
 ---
 
-## Tính năng / Features
+## Giới thiệu
 
-| Tính năng | Mô tả |
-|-----------|-------|
-| **Rule-based engine** | Không lỗi làm tròn float, chạy offline 100% |
-| **Web Add-in (Office.js)** | Mac, Windows, Excel Online — Task Pane + Custom Functions |
-| **Legacy VBA (.xlam)** | Windows/Mac classic — hàm `=VND_Vi(A1)` |
-| **Web Tool** | Dashboard đa công cụ kế toán tại `/docs` |
-| **AI Mode** | Groq Llama-3.1 — fallback tự động về rule-based |
-| **Song ngữ** | Tiếng Việt + English, VND + USD |
+**DocSoThanhChu** gồm ba phần:
+
+| Thành phần | Mô tả |
+|------------|--------|
+| **Web** (`docs/`) | Dashboard trình duyệt: đọc số, VAT, lương, font, VietQR, XML. **Không có AI.** |
+| **Office.js** | Excel 365 / Mac / Online — Task Pane + hàm `DOCSO.*` + **AI Groq tùy chọn** |
+| **VBA** (`legacy-vba/`) | `.xlam` offline — hàm `VND_Vi`, `USD_Vi`… |
+
+Engine đọc số dùng quy tắc cố định (rule-based), tham khảo TT39/2014/TT-BTC. Kết quả mang tính tham khảo.
+
+---
+
+## Tính năng
+
+| Tính năng | Web | Excel VBA | Excel Office.js |
+|-----------|-----|-----------|-----------------|
+| Đọc số VND/USD Vi/En | Có | Có | Có |
+| VAT, lương, VietQR, XML | Có | Không | Không |
+| Task Pane | — | Không | Có |
+| AI (Groq Llama-3) | **Không** | Không | Có (tùy chọn) |
+| Offline | Một phần* | Có | Cần host add-in |
+
+\* Web: PWA cache sau lần tải đầu; VietQR luôn cần mạng.
 
 ---
 
@@ -62,7 +67,7 @@ npm run start
 
 1. Mở Excel → **Insert** → **Get Add-ins** → **Upload My Add-in**
 2. Chọn `web-addin/manifest.xml` (dev) hoặc `manifest-prod.xml` (production)
-3. Tab **DocSo AI** xuất hiện trên Home
+3. Tab **Đọc Số · DocSoThanhChu** xuất hiện trên Home
 
 Chi tiết: [HUONG_DAN_CAI_DAT.md](HUONG_DAN_CAI_DAT.md)
 
@@ -112,9 +117,9 @@ Truy cập [anlvdt.github.io/numbertowords](https://anlvdt.github.io/numbertowor
 
 ---
 
-## Quy tắc đọc số VN (Chuẩn kế toán)
+## Quy tắc đọc số VN (tham khảo)
 
-Tuân thủ Luật Kế toán 88/2015/QH13, Thông tư 39/2014/TT-BTC:
+Theo quy ước phổ biến trong TT39/2014/TT-BTC (kết quả nên đối chiếu chứng từ thực tế):
 
 | Quy tắc | Điều kiện | Ví dụ |
 |---------|-----------|-------|
@@ -128,13 +133,13 @@ Tuân thủ Luật Kế toán 88/2015/QH13, Thông tư 39/2014/TT-BTC:
 
 ---
 
-## Cấu hình AI / AI Configuration
+## Cấu hình AI (chỉ Excel Office.js)
 
-1. Truy cập [console.groq.com](https://console.groq.com) → tạo API key (`gsk_...`)
-2. Mở Task Pane trong Excel → tab Cài đặt → lưu key
-3. Dùng `=DOCSO.AI_SO(A1,"vi","vnd")`
+1. [console.groq.com](https://console.groq.com) → API key (`gsk_...`)
+2. Task Pane → Cài đặt → lưu key
+3. `=DOCSO.AI_SO(A1,"vi","vnd")`
 
-Gói miễn phí: ~14,400 requests/ngày. Không có key → tự động fallback rule-based offline.
+Gói miễn phí Groq có giới hạn (khoảng 14.400 req/ngày — xem tài liệu Groq). Không có key → fallback rule-based.
 
 ---
 

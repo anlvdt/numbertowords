@@ -116,12 +116,12 @@
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title"      DefaultValue="DocSoThanhChu AI v2.1" />
         <bt:String id="CommandsGroup.Label"   DefaultValue="DocSoThanhChu" />
-        <bt:String id="TaskpaneButton.Label"  DefaultValue="Đọc Số · DocSo AI" />
+        <bt:String id="TaskpaneButton.Label"  DefaultValue="Đọc Số · DocSoThanhChu" />
         <bt:String id="Functions.Namespace"   DefaultValue="DOCSO" />
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Dùng hàm =DOCSO.VND_VI(A1) trong ô Excel. Mở panel để convert nhanh và cấu hình AI." />
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Mở DocSoThanhChu AI — đọc số thành chữ tiếng Việt và English, có AI mode." />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Mở DocSoThanhChu — đọc số thành chữ; AI (Groq) tùy chọn." />
       </bt:LongStrings>
     </Resources>
 

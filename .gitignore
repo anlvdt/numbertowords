@@ -3,7 +3,9 @@
 node_modules/
 
 # IDE / local tooling
+.agents
 .agents/
+.kiro/
 .vscode/
 
 # Windows

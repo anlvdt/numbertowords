@@ -1,11 +1,11 @@
 {
-  "name": "DocSo AI - Tiện Ích Văn Phòng",
-  "short_name": "DocSoAI",
+  "name": "DocSoThanhChu — Tiện ích kế toán",
+  "short_name": "DocSo",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#37b24d",
-  "description": "Tiện ích đa năng All-in-One cho Kế toán và Hành chính. Đọc số thành chữ, VAT, VietQR, HR Names.",
+  "description": "Đọc số thành chữ, VAT, lương Gross/Net, sửa font VNI, VietQR, XML. Xử lý trên trình duyệt (không có AI).",
   "icons": [
     {
       "src": "./assets/icon-64.png",

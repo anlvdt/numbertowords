@@ -1,6 +1,33 @@
 # Release Notes
 
-## v2.1.1 (2026-06-26)
+## v2.2.1 (2026-06-26)
+
+### Content audit — accurate, truthful copy
+- Phân tách rõ **Web (không AI)** vs **Excel Office.js (AI tùy chọn)** vs **VBA**
+- Bỏ claim "100% offline", "tuyệt đối", "tuân thủ" → "tham khảo TT39", "xử lý local"
+- Sửa hàm VBA `VND_Vi` (không phải `DOCSO.*` hay `VND(A1)`)
+- VietQR: ghi rõ cần img.vietqr.io và đối chiếu trước chuyển khoản
+- Lương: disclaimer tham khảo, LCS/LTTV nguồn NĐ
+- FAQ: thêm câu hỏi "Bản web có AI không?"
+- `docs/js/copy.js` — nguồn copy chuẩn hóa
+
+---
+
+### Web Dashboard — Deep Audit & Overhaul
+- **Architecture**: Tách `docs/js/shared.js` — parser, font fix, salary, utils
+- **Live convert**: Tự động chuyển đổi khi gõ (debounce 350ms), bỏ delay giả
+- **parseLocaleNumber**: Hỗ trợ định dạng VN `1.234.567,89` và US `1,234,567.89`
+- **Font VNI/TCVN3**: Sửa bảng mapping lỗi, preview realtime
+- **Mobile UX**: Thanh công cụ cuộn ngang, sidebar ẩn trên mobile
+- **Dark mode**: Toggle theme, lưu localStorage
+- **VAT 5%**: Thêm mức thuế suất 5%
+- **VietQR**: Trường tên chủ TK; HR email domain tùy chọn
+- **XML**: Hỗ trợ thêm tag alias (Seller/Buyer/Product)
+- **PWA**: Service worker network-first cho HTML, cache v2.2.0
+- **A11y**: Skip link, focus-visible, prefers-reduced-motion
+- **Tests**: `scripts/test-shared.js` cho parser
+
+---
 
 ### Repository Merge & Audit
 - **Merged `docsothanhchu`** into `numbertowords` — VBA source consolidated under `legacy-vba/`

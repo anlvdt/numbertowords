@@ -12,7 +12,7 @@
   <ProviderName>Le Van An (@anlvdt)</ProviderName>
   <DefaultLocale>vi-VN</DefaultLocale>
   <DisplayName DefaultValue="DocSoThanhChu AI" />
-  <Description DefaultValue="Đọc số thành chữ tiếng Việt &amp; English. Hỗ trợ VND, USD. AI mode với Groq Llama-3. Chạy hoàn toàn qua Github Pages tĩnh (Không cần cài đặt)." />
+  <Description DefaultValue="Excel Add-in: đọc số VND/USD (Vi/En). AI tùy chọn qua Groq. Task Pane + hàm =DOCSO.*" />
   <IconUrl DefaultValue="https://anlvdt.github.io/numbertowords/assets/icon-64.png" />
   <HighResolutionIconUrl DefaultValue="https://anlvdt.github.io/numbertowords/assets/icon-128.png" />
   <SupportUrl DefaultValue="https://github.com/anlvdt/numbertowords" />
@@ -116,12 +116,12 @@
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title"      DefaultValue="DocSoThanhChu AI v2.1" />
         <bt:String id="CommandsGroup.Label"   DefaultValue="DocSoThanhChu" />
-        <bt:String id="TaskpaneButton.Label"  DefaultValue="Đọc Số · DocSo AI" />
+        <bt:String id="TaskpaneButton.Label"  DefaultValue="Đọc Số · DocSoThanhChu" />
         <bt:String id="Functions.Namespace"   DefaultValue="DOCSO" />
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Dùng hàm =DOCSO.VND_VI(A1) trực tiếp trong ô Excel cục bộ (0s lag)." />
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Mở Panel DocSoThanhChu AI Cloud (API Groq Llama-3) cho báo cáo linh hoạt." />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Mở DocSoThanhChu — đọc số thành chữ; AI (Groq) tùy chọn." />
       </bt:LongStrings>
     </Resources>
 

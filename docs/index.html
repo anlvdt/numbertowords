@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ─── SEO ──────────────────────────────────────────────────────────────── -->
-  <title>Đọc Số Thành Chữ & Tiện Ích Kế Toán Miễn Phí</title>
-  <meta name="description" content="Bộ công cụ tiện ích All-in-One cho kế toán, hành chính: Đọc số thành chữ, Chuyển mã font VNI, Tính thuế VAT, Xóa dấu tiếng Việt, không cần cài đặt." />
+  <title>DocSoThanhChu — Đọc Số Thành Chữ & Tiện Ích Kế Toán</title>
+  <meta name="description" content="Công cụ web miễn phí: đọc số thành chữ (VND/USD), sửa font VNI/TCVN3, tính VAT, lương Gross/Net, VietQR, đọc XML hóa đơn. Xử lý trên trình duyệt." />
   <meta name="keywords" content="đọc số thành chữ, font vni sang unicode, tính thuế vat 8%, tính thuế vat 10%, xóa dấu tiếng việt, tiện ích văn phòng, kế toán" />
   <meta name="author" content="Le Van An - DocSoThanhChu" />
   <meta name="robots" content="index, follow" />
@@ -20,7 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Đọc Số Thành Chữ Online Miễn Phí - DocSoThanhChu" />
-  <meta property="og:description" content="Công cụ đọc số thành chữ tiếng Việt và tiếng Anh. Hỗ trợ VND, USD, chuẩn kế toán." />
+  <meta property="og:description" content="Đọc số thành chữ VND/USD (Vi/En). Xử lý trên trình duyệt — không có AI. VietQR cần mạng." />
   <meta property="og:url" content="https://anlvdt.github.io/numbertowords/" />
   <meta property="og:locale" content="vi_VN" />
 
@@ -29,8 +29,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Đọc Số Thành Chữ Online",
-    "description": "Công cụ chuyển đổi số thành chữ tiếng Việt và tiếng Anh, hỗ trợ VND và USD.",
+    "name": "DocSoThanhChu",
+    "description": "Công cụ web chuyển số thành chữ (Vi/En), VND/USD. Xử lý local trên trình duyệt.",
     "url": "https://anlvdt.github.io/numbertowords/",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
@@ -49,14 +49,16 @@
 </head>
 <body>
 
+<a href="#cong-cu" class="skip-link">Chuyển tới công cụ</a>
+
 <!-- ─── Navigation ────────────────────────────────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#" class="nav-brand" aria-label="DocSoThanhChu Home">
       <div class="nav-logo" aria-hidden="true">₫</div>
       <div>
-        <div class="nav-name">DocSo<span class="accent">AI</span></div>
-        <div class="nav-tagline">Đọc Số Thành Chữ</div>
+        <div class="nav-name">DocSo<span class="accent">ThanhChu</span></div>
+        <div class="nav-tagline">Công cụ web · Kế toán VN</div>
       </div>
     </a>
     <div class="nav-links">
@@ -64,6 +66,9 @@
       <a href="#huong-dan" class="nav-link">Hướng dẫn</a>
       <a href="#vi-du" class="nav-link">Ví dụ</a>
       <a href="#faq" class="nav-link">FAQ</a>
+      <button id="btn-theme" class="nav-icon-btn" type="button" aria-label="Đổi giao diện sáng/tối" title="Đổi theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
       <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener" class="nav-btn">
         Excel Add-in ↗
       </a>
@@ -76,10 +81,16 @@
   <div class="container">
     <div class="hero-badge">
       <span class="dot" aria-hidden="true"></span>
-      Trợ Lý Hành Chính Toàn Diện
+      Trợ lý kế toán trên trình duyệt
     </div>
     <h1 class="hero-title">Đọc Số Thành Chữ<br/><em>&amp; Tiện Ích Kế Toán</em></h1>
-    <p class="hero-sub">Tiện ích chuyển đổi số thành chữ siêu tốc. Tích hợp trọn bộ công cụ kế toán: Sửa font VNI, Tính VAT, tạo VietQR và Đọc XML an toàn tuyệt đối.</p>
+    <p class="hero-sub">Chuyển số thành chữ theo quy tắc kế toán VN, kèm VAT, lương Gross/Net, sửa font VNI/TCVN3, VietQR và đọc XML hóa đơn — chạy trên trình duyệt, không cần cài Excel.</p>
+    <div class="hero-trust">
+      <span class="hero-trust-item"><strong>Xử lý local</strong> — đọc số/XML không qua server dự án</span>
+      <span class="hero-trust-item"><strong>Theo TT39/2014</strong> — quy tắc đọc số phổ biến</span>
+      <span class="hero-trust-item"><strong>Miễn phí</strong> — mã nguồn mở MIT</span>
+    </div>
+    <p class="hero-disclaimer">AI (Groq) chỉ có trên Excel Add-in, không có trên bản web này. VietQR cần internet (img.vietqr.io).</p>
   </div>
 </header>
 
@@ -99,6 +110,10 @@
 
 <!-- ─── Main Tool ─────────────────────────────────────────────────────────── -->
 <main id="cong-cu" class="main-tool" role="main">
+  <div class="container">
+    <!-- Mobile tool strip -->
+    <nav id="tool-menu-mobile" class="tool-menu-mobile" aria-label="Chọn công cụ (mobile)"></nav>
+  </div>
   <div class="container dashboard-layout">
     
     <!-- Sidebar Menu -->
@@ -154,10 +169,9 @@
         <div class="input-row">
           <input
             id="number-input"
-            type="number"
+            type="text"
             class="number-input"
-            placeholder="Ví dụ: 1234567 hoặc 1234.56"
-            step="any"
+            placeholder="1.234.567 hoặc 1234.56"
             autocomplete="off"
             inputmode="decimal"
             aria-describedby="input-hint"
@@ -166,7 +180,7 @@
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
-        <p id="input-hint" class="field-hint">Hỗ trợ số dương, âm và số thập phân (cho USD)</p>
+        <p id="input-hint" class="field-hint">Hỗ trợ định dạng VN (1.234.567,89), US (1,234,567.89), số âm và USD thập phân</p>
       </div>
 
       <!-- Options -->
@@ -259,8 +273,8 @@
       
       <div class="batch-dropzone" data-tool="docso">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        <div style="font-weight:600; margin-top:8px;">Xử lý Đọc Số hệ thống (Nhiều tệp)</div>
-        <div class="field-hint">Kéo & Thả các tệp .csv hoặc .txt chứa số lượng lớn vào đây</div>
+        <div style="font-weight:600; margin-top:8px;">Đọc số hàng loạt từ file</div>
+        <div class="field-hint">Kéo thả file .csv hoặc .txt — mỗi dòng một số</div>
         <input type="file" multiple accept=".csv,.txt" style="display:none;" />
       </div>
     </section>
@@ -273,7 +287,7 @@
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
         Sửa Lỗi Font (VNI / TCVN3 ➔ Unicode)
       </h2>
-      <p class="field-hint mb-3">Dán đoạn văn bản bị biến dạng (Ví dụ: <i>CÃ´ng ty TNHH</i>) vào đây để khôi phục.</p>
+      <p class="field-hint mb-3">Chuyển VNI Windows và TCVN3 (ABC) sang Unicode. Ví dụ: <i>CÃ´ng ty TNHH</i> → Công ty TNHH. Một số bảng mã hiếm có thể cần chỉnh tay.</p>
       
       <div class="field-group">
         <textarea id="font-input" class="batch-textarea" placeholder="Dán văn bản lỗi font vào đây..." rows="5"></textarea>
@@ -312,6 +326,7 @@
         <div class="options-group">
           <span class="opt-label">Mức thuế suất</span>
           <div class="seg-group">
+            <button id="vat-5" class="seg" data-vat="5">5%</button>
             <button id="vat-8" class="seg active" data-vat="8">8%</button>
             <button id="vat-10" class="seg" data-vat="10">10%</button>
           </div>
@@ -349,7 +364,7 @@
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         Xóa Dấu Tiếng Việt (Chuẩn hóa)
       </h2>
-      <p class="field-hint mb-3">Tạo nội dung không dấu chuẩn để chuyển khoản Ngân hàng (tránh lỗi font hệ thống core-banking).</p>
+      <p class="field-hint mb-3">Bỏ dấu tiếng Việt — thường dùng cho nội dung chuyển khoản ngân hàng (tránh lỗi hiển thị trên một số hệ thống).</p>
       
       <div class="field-group">
         <textarea id="nodiacritics-input" class="batch-textarea" placeholder="Nhập nội dung (VD: NGUYỄN VĂN A THANH TOÁN MÁY TÍNH)" rows="3"></textarea>
@@ -377,9 +392,9 @@
     <section class="tool-card" aria-labelledby="tool-heading-salary">
       <h2 id="tool-heading-salary" class="tool-heading">
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
-        Tính Lương Gross ↔ Net (Chuẩn BHXH)
+        Tính Lương Gross ↔ Net (ước tính)
       </h2>
-      
+      <p class="field-hint mb-3">Tham khảo BHXH 8% + BHYT 1,5% + BHTN 1% và thuế TNCN lũy tiến. LCS 2.340.000đ · LTTV theo NĐ 293/2025.</p>
       <div class="options-wrap" style="align-items:flex-end;">
         <div class="field-group" style="flex:1; margin-bottom:0;">
           <label for="salary-input" class="field-label">Thu nhập (VNĐ)</label>
@@ -397,10 +412,10 @@
         <div class="field-group">
           <label class="field-label">Vùng đóng BH</label>
           <select id="salary-region" class="number-input" style="font-size:15px; padding:10px;">
-            <option value="1">Vung I (LTTV: 5.31tr)</option>
-            <option value="2">Vung II (LTTV: 4.73tr)</option>
-            <option value="3">Vung III (LTTV: 4.14tr)</option>
-            <option value="4">Vung IV (LTTV: 3.70tr)</option>
+            <option value="1">Vùng I (LTTV 5.310.000đ)</option>
+            <option value="2">Vùng II (LTTV 4.730.000đ)</option>
+            <option value="3">Vùng III (LTTV 4.140.000đ)</option>
+            <option value="4">Vùng IV (LTTV 3.700.000đ)</option>
           </select>
         </div>
         <div class="field-group">
@@ -409,7 +424,8 @@
         </div>
       </div>
 
-      <button id="btn-calc-salary" class="btn-primary">Diễn giải Lương chi tiết</button>
+      <button id="btn-calc-salary" class="btn-primary">Tính lương (tham khảo)</button>
+      <p class="field-hint" style="margin-top:8px">Không thay thế bảng lương chính thức. Chưa tính phụ cấp, thưởng, cam kết lương khác.</p>
 
       <div id="salary-result-wrap" class="result-wrap hidden" style="background:#fcfcfc;">
         <table style="width:100%; border-collapse:collapse; font-size:14px; text-align:right;">
@@ -465,15 +481,19 @@
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Tách Họ Tên / Tạo Email (HR Data)
       </h2>
-      <p class="field-hint mb-3">Dán cột danh sách "Họ và Tên", công cụ sẽ phân rã thành "Họ Đệm" - "Tên" chuẩn để sắp xếp A-Z hoặc tự động sinh địa chỉ Email công ty.</p>
+      <p class="field-hint mb-3">Tách họ đệm và tên (quy ước: từ cuối là tên). Email gợi ý dạng <code>ten.hoviettat@domain</code> — tùy quy ước công ty.</p>
       
       <div class="field-group">
         <textarea id="hrname-input" class="batch-textarea" placeholder="Trần Văn B&#10;Nguyễn Thị Kiều Oanh" rows="5"></textarea>
       </div>
 
       <div class="options-wrap">
-        <button id="btn-split-name" class="btn-primary" style="flex:1;">Tách Họ Đệm & Tên</button>
-        <button id="btn-gen-email" class="btn-secondary" style="flex:1;">Tạo Email (ten.hoviet-tat)</button>
+        <button id="btn-split-name" class="btn-primary btn-half">Tách Họ Đệm & Tên</button>
+        <button id="btn-gen-email" class="btn-secondary btn-half">Tạo Email công ty</button>
+      </div>
+      <div class="field-group" style="margin-top:12px">
+        <label for="hr-email-domain" class="field-label">Domain email (tùy chọn)</label>
+        <input id="hr-email-domain" type="text" class="number-input input-sm" placeholder="congty.com" autocomplete="off" />
       </div>
 
       <div id="hrname-result-wrap" class="result-wrap hidden" style="margin-top:20px;">
@@ -500,14 +520,14 @@
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         Trình Đọc Hóa Đơn XML Nội Bộ
       </h2>
-      <p class="field-hint mb-3">Kéo & Thả file <code>.xml</code> hóa đơn vào đây để đọc nhanh. Dữ liệu xử lý 100% Offline trên máy bạn (Bảo mật tuyệt đối, không lưu máy chủ).</p>
+      <p class="field-hint mb-3">Đọc file XML trên trình duyệt — không upload lên server của dự án. Hỗ trợ mẫu HĐĐT phổ biến (TT78); một số nhà cung cấp có thể dùng tag khác.</p>
       
       <div id="xml-dropzone" style="border: 2px dashed var(--border); border-radius: var(--r-md); padding: 40px; text-align: center; cursor: pointer; transition: all var(--t); background: var(--bg-hover); margin-bottom:var(--sp-5);">
         <div style="font-size:32px; color:var(--text-light); margin-bottom:10px;">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         </div>
         <div style="font-weight:600; color:var(--text-2);">Click chọn hoặc Kéo thả file XML vào đây</div>
-        <div class="field-hint">Chỉ hỗ trợ chuẩn Hóa Đơn Điện Tử VN</div>
+        <div class="field-hint">Hóa đơn điện tử GTGT — định dạng XML thường gặp</div>
         <input type="file" id="xml-file" accept=".xml" style="display:none;" />
       </div>
 
@@ -557,7 +577,7 @@
         <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><rect x="7" y="7" width="3" height="3"/><rect x="14" y="7" width="3" height="3"/><rect x="7" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/></svg>
         Tạo Mã Chuyển Khoản Nhanh VietQR
       </h2>
-      <p class="field-hint mb-3">Sinh mã QR Code chuẩn NAPAS. Khách hàng chỉ cần quét app ngân hàng là đúng 100% STK và số tiền hợp đồng.</p>
+      <p class="field-hint mb-3">Tạo ảnh QR qua dịch vụ <a href="https://vietqr.io" target="_blank" rel="noopener">img.vietqr.io</a> (cần internet). Vui lòng quét thử và đối chiếu STK, số tiền trước khi chuyển khoản.</p>
 
       <div style="display:grid; grid-template-columns:1fr; gap:16px; margin:20px 0;">
         <div class="field-group" style="margin-bottom:0;">
@@ -591,9 +611,13 @@
           <label class="field-label">Số tiền (VNĐ)</label>
           <input id="qr-amt" type="number" class="number-input" placeholder="Ví dụ: 500000" autocomplete="off">
         </div>
-        <div class="field-group" style="margin-bottom:0;">
-          <label class="field-label">Nội dung thanh toán (Đã xóa dấu tự động nếu gõ tiếng Việt)</label>
-          <input id="qr-desc" type="text" class="number-input" placeholder="HD123 NGUYEN VAN A CAN TOAN" autocomplete="off">
+        <div class="field-group">
+          <label class="field-label">Nội dung chuyển khoản (tự xóa dấu)</label>
+          <input id="qr-desc" type="text" class="number-input input-sm" placeholder="HD123 NGUYEN VAN A" autocomplete="off">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Tên chủ tài khoản (tùy chọn)</label>
+          <input id="qr-name" type="text" class="number-input input-sm" placeholder="NGUYEN VAN A" autocomplete="off">
         </div>
       </div>
       
@@ -627,19 +651,19 @@
           <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
         <h2 id="tool-heading-excel" style="font-size:24px; font-weight:700; color:var(--text-1); margin:0 0 10px 0;">Trung Tâm Cài Đặt (Excel Add-in)</h2>
-        <p class="field-hint" style="max-width:500px; margin:0 auto; font-size:14.5px;">Mang bộ chuyển phép màu Đọc Số về nằm vĩnh viễn trên bảng tính Excel của bạn. Không cần mở Web, chỉ cần cài đặt 1 lần duy nhất cho mọi tài liệu.</p>
+        <p class="field-hint" style="max-width:500px; margin:0 auto; font-size:14.5px;">Cài add-in Excel để gọi hàm đọc số trực tiếp trong ô tính. Bản web và bản Excel là hai kênh riêng.</p>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <!-- Bản Cổ Điển -->
         <div style="background:var(--bg-page); border:2px solid var(--border); border-radius:var(--r-md); padding:24px; transition:all var(--t);">
           <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:#f1f3f5; border-radius:100px; font-size:12px; font-weight:700; color:#495057; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px;">Bản Truyền Thống (.xlam)</div>
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Cho Normal User</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); min-height:45px;">Cài đặt thủ công bằng file gốc. Dùng hàm `=VND(A1)` trực tiếp trên Windows & Mac.</p>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">VBA (.xlam)</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); min-height:45px;">Hàm <code>=VND_Vi(A1)</code>, <code>=USD_Vi(A1)</code>… Offline, không cần mạng sau khi cài.</p>
           <ul style="font-size:13px; color:var(--text-2); padding-left:18px; margin-bottom:24px; display:flex; flex-direction:column; gap:8px;">
-            <li>Ưu điểm: Vĩnh cửu, Siêu nhẹ, Offline 100%.</li>
-            <li>Nhược điểm: Không có giao diện AI (Chỉ dùng hàm).</li>
-            <li>Hỗ trợ: Mọi bản Windows/Mac (Từ 2013).</li>
+            <li>Ưu: Nhẹ, ổn định, không cần manifest.</li>
+            <li>Hạn chế: Không có Task Pane AI; trên Mac chỉ dùng hàm trong ô.</li>
+            <li>Hỗ trợ: Excel 2013+ (Windows); Mac có giới hạn giao diện.</li>
           </ul>
           <a href="https://github.com/anlvdt/numbertowords/raw/main/legacy-vba/DocSoThanhChu.xlam" class="btn-primary" style="text-decoration:none; text-align:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -650,12 +674,12 @@
         <!-- Bản Hiện Đại -->
         <div style="background:var(--green-light); border:2px solid var(--green); border-radius:var(--r-md); padding:24px; position:relative;">
           <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:var(--green); border-radius:100px; font-size:12px; font-weight:700; color:white; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px;">Khuyên Dùng (Panel Add-in)</div>
-          <h3 style="font-size:18px; font-weight:700; color:var(--green-dark); margin-bottom:8px;">Cho Advanced / 365 User</h3>
-          <p style="font-size:13.5px; color:#2b8a3e; min-height:45px;">Mang nguyên Dashboard Web này ngàm thẳng vào thanh Ribbon bên tay phải (Taskpane AI).</p>
+          <h3 style="font-size:18px; font-weight:700; color:var(--green-dark); margin-bottom:8px;">Office.js (365)</h3>
+          <p style="font-size:13.5px; color:#2b8a3e; min-height:45px;">Task Pane đọc số + hàm <code>=DOCSO.VND_VI(A1)</code>. AI (Groq) tùy chọn — cần API key miễn phí.</p>
           <ul style="font-size:13px; color:#40c057; padding-left:18px; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; font-weight:500;">
-            <li style="color:#2b8a3e;">Ưu điểm: Tích hợp Llama-3 AI, Có nút bấm tương tác.</li>
-            <li style="color:#2b8a3e;">Nhược điểm: Yêu cầu Sideload (Manifest) hoặc IT cài đặt.</li>
-            <li style="color:#2b8a3e;">Hỗ trợ: Web Office, Mac 365, Win 365.</li>
+            <li style="color:#2b8a3e;">Ưu: Mac/Win/Excel Online, có panel tương tác.</li>
+            <li style="color:#2b8a3e;">Hạn chế: Cần sideload manifest hoặc IT triển khai; AI phụ thuộc Groq.</li>
+            <li style="color:#2b8a3e;">Lưu ý: Không gồm toàn bộ dashboard web (VAT, VietQR…).</li>
           </ul>
           <a href="https://github.com/anlvdt/numbertowords/raw/main/manifest-prod.xml" class="btn-primary" style="background:#2b8a3e; box-shadow:none; text-decoration:none; text-align:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -665,7 +689,7 @@
       </div>
 
       <!-- Quick Install Guide -->
-      <h3 style="font-size:16px; margin:30px 0 12px 0;">Hướng Dẫn Cài Đặt Khẩn Cấp</h3>
+      <h3 style="font-size:16px; margin:30px 0 12px 0;">Hướng dẫn cài đặt</h3>
       <div style="background:#f9f9f9; padding:16px; border-radius:var(--r-md); font-size:13.5px; line-height:1.7; color:#555;">
         <p style="margin-bottom:8px;"><strong style="color:var(--text-1);">Cách 1 (Bản Truyền Thống XLAM):</strong> Mở File Excel trắng > Bấm <code>Tiệp (File)</code> > <code>Tùy chọn (Options)</code> > <code>Add-ins</code> > Bấm thẻ [Go.. Mở] dưới đáy > [Browse.. Trỏ] tới file .xlam vừa tải để bật Vĩnh viễn.</p>
         <hr style="border:1px dashed #ddd; margin:12px 0;" />
@@ -706,7 +730,7 @@
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--red, #e03131)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             Báo cáo lỗi hệ thống
           </strong>
-          <span class="field-hint">Gặp lỗi sai font, số tính sai hay UI vỡ tỷ lệ? Nhấn vào đây báo cáo để tôi sửa ngay lập tức.</span>
+          <span class="field-hint">Gặp lỗi đọc số, font hoặc giao diện? Báo trên GitHub Issues.</span>
         </a>
         <a href="https://github.com/anlvdt/numbertowords/issues/new?title=[FEATURE]%20%C4%90%E1%BB%81%20xu%E1%BA%A5t%20t%C3%ADnh%20n%C4%83ng" target="_blank" rel="noopener" style="text-decoration:none; padding:16px; border:1px solid var(--border); border-radius:var(--r-md); transition:all var(--t); background:var(--bg-page); display:block;" onmouseover="this.style.borderColor='var(--text-1)'" onmouseout="this.style.borderColor='var(--border)'">
           <strong style="display:flex; align-items:center; gap:6px; color:var(--text-1); margin-bottom:6px;">
@@ -723,7 +747,7 @@
         <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px;">
           <li><strong>UI/UX Design:</strong> Mang thiết kế tối giản, triệt tiêu Emoji, chịu ảnh hưởng từ <a href="https://notion.so" target="_blank" rel="noopener" style="color:var(--text-1)">Notion</a> và <a href="https://wise.com" target="_blank" rel="noopener" style="color:var(--text-1)">Wise</a>. Biểu tượng SVG thuộc bộ <a href="https://feathericons.com/" target="_blank" rel="noopener" style="color:var(--text-1)">Feather Icons</a> gốc.</li>
           <li><strong>Thư viện Đọc Số:</strong> Kế thừa và cải tiến bằng Vanilla JS từ mã nguồn thuật toán VBA xuất bản bởi <a href="https://blog.hocexcel.online/doc-so-thanh-chu-bang-add-in-tu-hoc-excel-online.html" target="_blank" rel="noopener" style="color:var(--text-1); font-weight:600;">Học Excel Online</a>.</li>
-          <li><strong>Data Privacy:</strong> 100% Thuật toán chạy Client-side local, cắt đứt kết nối Database nội bộ. Mã QR tạo thông qua mã nguồn mở giao thức NAPAS (`vietqr.io`).</li>
+          <li><strong>Quyền riêng tư:</strong> Đọc số, VAT, lương, font, XML chạy trên trình duyệt — không gửi về server dự án. VietQR tạo qua <a href="https://vietqr.io" target="_blank" rel="noopener">img.vietqr.io</a> (cần mạng).</li>
           <li><strong>Bản quyền:</strong> Phát hành với phân cấp <strong>MIT License</strong>. Cho phép quyền can thiệp, sao chép hoặc phân phối tự do.</li>
         </ul>
       </div>
@@ -766,6 +790,7 @@
             <tr><td><strong>nghìn</strong> (không "ngàn")</td><td>1000 → một nghìn</td></tr>
           </tbody>
         </table>
+        <p class="field-hint" style="margin-top:10px">Tham khảo TT39/2014 — đối chiếu quy định nội bộ.</p>
       </div>
 
       <!-- Sticky sidebar ads -->
@@ -831,11 +856,11 @@
     <div class="guide-box">
       <h3 class="guide-title" style="display:flex;align-items:center;gap:8px">
         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
-        Cách dùng Batch Convert
+        Cách dùng chuyển đổi hàng loạt
       </h3>
       <div class="guide-content">
         <div class="guide-step">
-          <strong>Bước 1:</strong> Click <em>"Batch Convert — Chuyển nhiều số cùng lúc"</em> để mở
+          <strong>Bước 1:</strong> Mở <em>"Tự động chuyển đổi hàng loạt"</em>
         </div>
         <div class="guide-step">
           <strong>Bước 2:</strong> Nhập danh sách số, <strong>mỗi số trên một dòng</strong>:
@@ -845,10 +870,10 @@
 -500000</pre>
         </div>
         <div class="guide-step">
-          <strong>Bước 3:</strong> Nhấn <strong>Convert tất cả</strong>
+          <strong>Bước 3:</strong> Nhấn <strong>Chuyển đổi toàn bộ</strong>
         </div>
         <div class="guide-step">
-          <strong>Bước 4:</strong> Click <strong>Copy tất cả</strong> để copy toàn bộ kết quả
+          <strong>Bước 4:</strong> Nhấn <strong>Sao chép toàn bộ</strong> để copy toàn bộ kết quả
         </div>
       </div>
     </div>
@@ -951,8 +976,8 @@
     <div class="features-grid">
       <div class="feature-item">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-        <h3>Chuẩn kế toán VN</h3>
-        <p>Tuân thủ Luật Kế toán 88/2015/QH13 và Thông tư 39/2014/TT-BTC. Dùng "nghìn", "mươi/mười", "mốt/lăm/tư/lẻ" đúng chuẩn.</p>
+        <h3>Theo quy tắc kế toán VN</h3>
+        <p>Áp dụng quy tắc đọc số phổ biến (TT39/2014/TT-BTC): "nghìn", mười/mươi, mốt/lăm/tư/lẻ. Kết quả tham khảo — đối chiếu chứng từ thực tế.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
@@ -966,18 +991,18 @@
       </div>
       <div class="feature-item">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-        <h3>Batch Convert</h3>
-        <p>Xử lý hàng trăm số cùng lúc. Dán danh sách, click và copy toàn bộ kết quả cực nhanh chóng.</p>
+        <h3>Batch convert</h3>
+        <p>Tối đa 100 số mỗi lần. Dán danh sách, copy kết quả dạng cột Excel.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-        <h3>Hoạt động offline</h3>
-        <p>Engine rule-based chạy 100% trên trình duyệt, không gửi dữ liệu lên server. Bảo mật tuyệt đối dữ liệu.</p>
+        <h3>Xử lý trên trình duyệt</h3>
+        <p>Engine đọc số chạy local (JavaScript). Sau khi tải trang, PWA có thể dùng offline cho phần lớn công cụ — trừ VietQR.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
         <h3>Excel Add-in</h3>
-        <p>Dùng trực tiếp trong Excel với hàm <code>=DOCSO.VND_VI(A1)</code>. Hỗ trợ cả trên Mac và Windows.</p>
+        <p>Office.js: <code>=DOCSO.VND_VI(A1)</code> + AI tùy chọn. VBA: <code>=VND_Vi(A1)</code> offline. Mac nên dùng Office.js nếu cần panel.</p>
       </div>
     </div>
   </div>
@@ -992,17 +1017,17 @@
 
       <details class="faq-item" role="listitem">
         <summary class="faq-q">Công cụ này có miễn phí không?</summary>
-        <div class="faq-a">Hoàn toàn miễn phí, không giới hạn số lần sử dụng, không cần đăng ký. Engine xử lý ngay trên trình duyệt của bạn.</div>
+        <div class="faq-a">Miễn phí, mã nguồn mở MIT. Không cần đăng ký. Phần đọc số và các công cụ tính toán chạy trên trình duyệt của bạn.</div>
       </details>
 
       <details class="faq-item" role="listitem">
         <summary class="faq-q">Dữ liệu của tôi có bị lưu lại không?</summary>
-        <div class="faq-a">Không. Toàn bộ quá trình xử lý diễn ra trên trình duyệt (JavaScript) — không có dữ liệu nào được gửi về server. Bạn có thể dùng offline sau khi tải trang xong.</div>
+        <div class="faq-a">Dự án không lưu dữ liệu của bạn trên server riêng. Đọc số, VAT, lương, font, XML xử lý local. Riêng VietQR gửi tham số tới img.vietqr.io để tạo ảnh QR. Lần đầu tải trang có thể tải font từ Google.</div>
       </details>
 
       <details class="faq-item" role="listitem">
         <summary class="faq-q">Tại sao dùng "nghìn" mà không phải "ngàn"?</summary>
-        <div class="faq-a">Theo chuẩn kế toán Việt Nam (Thông tư 39/2014/TT-BTC), các chứng từ tài chính phải dùng "nghìn" thay vì "ngàn". Công cụ này tuân thủ đúng quy định này.</div>
+        <div class="faq-a">Theo quy ước phổ biến trong kế toán VN (Thông tư 39/2014/TT-BTC), chứng từ tài chính thường dùng "nghìn" thay vì "ngàn". Công cụ áp dụng quy tắc này.</div>
       </details>
 
       <details class="faq-item" role="listitem">
@@ -1017,12 +1042,17 @@
 
       <details class="faq-item" role="listitem">
         <summary class="faq-q">Có phiên bản Excel Add-in không?</summary>
-        <div class="faq-a">Có! <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener" class="link">DocSoThanhChu Excel Add-in</a> hỗ trợ Mac và Windows, cho phép dùng hàm <code>=DOCSO.VND_VI(A1)</code> trực tiếp trong ô. Xem hướng dẫn trên GitHub.</div>
+        <div class="faq-a">Có hai bản: VBA (<code>=VND_Vi</code>, offline) và Office.js (<code>=DOCSO.VND_VI</code>, có Task Pane + AI tùy chọn). Xem tab "Tải Excel Add-in" hoặc <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener" class="link">GitHub</a>.</div>
       </details>
 
       <details class="faq-item" role="listitem">
-        <summary class="faq-q">Batch Convert hoạt động như thế nào?</summary>
-        <div class="faq-a">Mở mục "Batch Convert", nhập danh sách số (mỗi số trên một dòng), nhấn "Convert tất cả". Tối đa 100 số mỗi lần. Kết quả hiển thị ngay và có thể copy tất cả.</div>
+        <summary class="faq-q">Bản web có AI không?</summary>
+        <div class="faq-a">Không. Bản web chỉ dùng engine rule-based (thuật toán cố định). AI qua Groq (Llama-3) chỉ có trên Excel Add-in Office.js, cần API key miễn phí tại console.groq.com.</div>
+      </details>
+
+      <details class="faq-item" role="listitem">
+        <summary class="faq-q">Chuyển đổi hàng loạt hoạt động thế nào?</summary>
+        <div class="faq-a">Mở "Tự động chuyển đổi hàng loạt", dán tối đa 100 số (mỗi dòng một số), nhấn chuyển đổi và copy kết quả.</div>
       </details>
 
     </div>
@@ -1046,7 +1076,7 @@
 <footer class="footer" role="contentinfo">
   <div class="container footer-inner">
     <div class="footer-brand">
-      DocSoThanhChu AI <span>— Đọc số thành chữ tiếng Việt &amp; English</span>
+      DocSoThanhChu <span>— Web &amp; Excel · Đọc số thành chữ</span>
     </div>
     <div class="footer-links">
       <a href="https://github.com/anlvdt/numbertowords" target="_blank" rel="noopener">GitHub</a>
@@ -1054,7 +1084,7 @@
       <a href="#vi-du">Ví dụ</a>
       <a href="#faq">FAQ</a>
     </div>
-    <div class="footer-copy">© 2026 Le Van An · MIT License · Chuẩn TT39/2014</div>
+    <div class="footer-copy">© 2026 Le Van An · MIT License · Quy tắc đọc số tham khảo TT39/2014</div>
   </div>
 </footer>
 
@@ -1062,6 +1092,8 @@
 <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
 <script src="converter.js"></script>
+<script src="js/copy.js"></script>
+<script src="js/shared.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
