@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ─── SEO ──────────────────────────────────────────────────────────────── -->
-  <title>Đọc Số Thành Chữ Online - Chuyển Số Thành Chữ Tiếng Việt Miễn Phí</title>
-  <meta name="description" content="Công cụ đọc số thành chữ tiếng Việt và tiếng Anh miễn phí. Hỗ trợ VND, USD, chuẩn kế toán Việt Nam (Thông tư 39/2014). Không cần cài đặt, dùng ngay trên trình duyệt." />
-  <meta name="keywords" content="đọc số thành chữ, chuyển số thành chữ, doc so thanh chu, đọc số tiền VND, đọc số tiếng Việt, number to words Vietnamese, đọc số kế toán" />
+  <title>Đọc Số Thành Chữ & Tiện Ích Kế Toán Miễn Phí</title>
+  <meta name="description" content="Bộ công cụ tiện ích All-in-One cho kế toán, hành chính: Đọc số thành chữ, Chuyển mã font VNI, Tính thuế VAT, Xóa dấu tiếng Việt, không cần cài đặt." />
+  <meta name="keywords" content="đọc số thành chữ, font vni sang unicode, tính thuế vat 8%, tính thuế vat 10%, xóa dấu tiếng việt, tiện ích văn phòng, kế toán" />
   <meta name="author" content="Le Van An - DocSoThanhChu" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://anlvdt.github.io/numbertowords/" />
+
+  <!-- PWA Manifest & Theme -->
+  <link rel="manifest" href="manifest-pwa.json" />
+  <meta name="theme-color" content="#37B24D" />
+  <link rel="apple-touch-icon" href="assets/icon-128.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -71,16 +76,10 @@
   <div class="container">
     <div class="hero-badge">
       <span class="dot" aria-hidden="true"></span>
-      Miễn phí · Không cài đặt · Chuẩn kế toán VN
+      Trợ Lý Hành Chính Toàn Diện
     </div>
-    <h1 class="hero-title">Đọc Số Thành Chữ<br/><em>Tiếng Việt &amp; English</em></h1>
-    <p class="hero-sub">Chuyển số tiền VND, USD thành chữ theo chuẩn kế toán Việt Nam (Thông tư 39/2014/TT-BTC). Hoạt động 100% trên trình duyệt, không cần cài đặt.</p>
-    <div class="hero-trust">
-      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Chuẩn TT39/2014</strong></div>
-      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Hỗ trợ VND &amp; USD</strong></div>
-      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Tiếng Việt &amp; English</strong></div>
-      <div class="hero-trust-item"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none" class="text-green"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Bảo mật — không lưu dữ liệu</strong></div>
-    </div>
+    <h1 class="hero-title">Đọc Số Thành Chữ<br/><em>&amp; Tiện Ích Kế Toán</em></h1>
+    <p class="hero-sub">Tiện ích chuyển đổi số thành chữ siêu tốc. Tích hợp trọn bộ công cụ kế toán: Sửa font VNI, Tính VAT, tạo VietQR và Đọc XML an toàn tuyệt đối.</p>
   </div>
 </header>
 
@@ -100,14 +99,54 @@
 
 <!-- ─── Main Tool ─────────────────────────────────────────────────────────── -->
 <main id="cong-cu" class="main-tool" role="main">
-  <div class="container tool-layout">
+  <div class="container dashboard-layout">
+    
+    <!-- Sidebar Menu -->
+    <aside class="dashboard-sidebar">
+      <nav class="tool-menu" aria-label="Tool selection">
+        <button class="tool-tab active" data-target="view-docso">
+          <span class="tab-icon">₫</span> Đọc Số Thành Chữ
+        </button>
+        <button class="tool-tab" data-target="view-font">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></span> Sửa Lỗi Font (VNI)
+        </button>
+        <button class="tool-tab" data-target="view-vat">
+          <span class="tab-icon">%</span> Công Cụ Tính VAT
+        </button>
+        <button class="tool-tab" data-target="view-nodiacritics">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> Chuẩn Hóa Chữ (Xóa Dấu)
+        </button>
+        <button class="tool-tab" data-target="view-salary">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span> Tính Lương Gross/Net
+        </button>
+        <button class="tool-tab" data-target="view-hrname">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Tách Họ Tên (HR Data)
+        </button>
+        <button class="tool-tab" data-target="view-xml">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span> Đọc Hóa Đơn XML
+        </button>
+        <button class="tool-tab" data-target="view-vietqr">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><rect x="7" y="7" width="3" height="3"/><rect x="14" y="7" width="3" height="3"/><rect x="7" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/></svg></span> Tạo Mã VietQR
+        </button>
+        <button class="tool-tab highlight" data-target="view-excel-addin" style="margin-top:12px; background:var(--green-light); color:var(--green-dark); border:1px dashed var(--green);">
+          <span class="tab-icon" style="background:var(--green); color:white;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span> Tải Excel Add-in
+        </button>
+        <button class="tool-tab" data-target="view-about" style="margin-top:12px; border-top:1px solid var(--border); padding-top:12px; border-radius:0;">
+          <span class="tab-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span> Tác Giả & Hỗ Trợ
+        </button>
+      </nav>
+    </aside>
 
-    <!-- Tool card -->
-    <section class="tool-card" aria-labelledby="tool-heading">
-      <h2 id="tool-heading" class="tool-heading">
-        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
-        Công cụ chuyển đổi
-      </h2>
+    <!-- Content Area -->
+    <div class="dashboard-content">
+
+      <!-- View 1: Doc So -->
+      <div id="view-docso" class="tool-view active">
+        <section class="tool-card" aria-labelledby="tool-heading-docso">
+          <h2 id="tool-heading-docso" class="tool-heading">
+            <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            Đọc Số Thành Chữ
+          </h2>
 
       <!-- Number input -->
       <div class="field-group">
@@ -160,9 +199,9 @@
         <div class="result-header">
           <span class="result-label">Kết quả</span>
           <div class="result-actions">
-            <button id="btn-copy" class="chip" aria-label="Copy kết quả">
+            <button id="btn-copy" class="chip" aria-label="Sao chép kết quả">
               <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              Copy
+              Sao chép
             </button>
           </div>
         </div>
@@ -189,14 +228,14 @@
         <summary class="batch-toggle">
           <div style="display:flex;align-items:center;gap:6px">
             <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
-            Batch Convert — Chuyển nhiều số cùng lúc
+            Tự động chuyển đổi hàng loạt
           </div>
           <span class="toggle-arrow">
             <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
         </summary>
         <div class="batch-body">
-          <label for="batch-input" class="field-label">Mỗi số trên một dòng (tối đa 100 số)</label>
+          <label for="batch-input" class="field-label">Mỗi số trên một dòng (Tối đa 100 số)</label>
           <textarea
             id="batch-input"
             class="batch-textarea"
@@ -206,20 +245,494 @@
           ></textarea>
           <button id="btn-batch" class="btn-secondary" style="display:flex;align-items:center;justify-content:center;gap:6px">
             <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            Convert tất cả
+            Chuyển đổi toàn bộ
           </button>
           <div id="batch-results" class="batch-results" aria-live="polite"></div>
           <div id="btn-copy-all-wrap" class="hidden">
             <button id="btn-copy-all" class="chip">
               <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              Copy tất cả
+              Sao chép toàn bộ
             </button>
           </div>
         </div>
       </details>
+      
+      <div class="batch-dropzone" data-tool="docso">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div style="font-weight:600; margin-top:8px;">Xử lý Đọc Số hệ thống (Nhiều tệp)</div>
+        <div class="field-hint">Kéo & Thả các tệp .csv hoặc .txt chứa số lượng lớn vào đây</div>
+        <input type="file" multiple accept=".csv,.txt" style="display:none;" />
+      </div>
     </section>
+  </div> <!-- end view-docso -->
 
-    <!-- Sidebar -->
+  <!-- View 2: Lỗi Font VNI -->
+  <div id="view-font" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-font">
+      <h2 id="tool-heading-font" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+        Sửa Lỗi Font (VNI / TCVN3 ➔ Unicode)
+      </h2>
+      <p class="field-hint mb-3">Dán đoạn văn bản bị biến dạng (Ví dụ: <i>CÃ´ng ty TNHH</i>) vào đây để khôi phục.</p>
+      
+      <div class="field-group">
+        <textarea id="font-input" class="batch-textarea" placeholder="Dán văn bản lỗi font vào đây..." rows="5"></textarea>
+      </div>
+      
+      <button id="btn-fix-font" class="btn-primary">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        Khôi phục Font
+      </button>
+
+      <div id="font-result-wrap" class="result-wrap hidden">
+        <div class="result-header">
+          <span class="result-label">Kết quả Unicode chuẩn</span>
+          <button id="btn-copy-font" class="chip">Copy</button>
+        </div>
+        <textarea id="font-result" class="batch-textarea" rows="5" readonly></textarea>
+      </div>
+
+      <div class="batch-dropzone" data-tool="font">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div style="font-weight:600; margin-top:8px;">Khôi phục Font hàng loạt (Multiple Files)</div>
+        <div class="field-hint">Kéo & Thả nhiều file .csv hoặc .txt lỗi font VNI vào đây</div>
+        <input type="file" multiple accept=".csv,.txt" style="display:none;" />
+      </div>
+    </section>
+  </div> <!-- end view-font -->
+
+  <!-- View 3: Công cụ tính VAT -->
+  <div id="view-vat" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-vat">
+      <h2 id="tool-heading-vat" class="tool-heading">
+        <span class="tool-heading-icon">%</span> Công Cụ Tính Thuế VAT
+      </h2>
+      
+      <div class="options-wrap">
+        <div class="options-group">
+          <span class="opt-label">Mức thuế suất</span>
+          <div class="seg-group">
+            <button id="vat-8" class="seg active" data-vat="8">8%</button>
+            <button id="vat-10" class="seg" data-vat="10">10%</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vat-calculator" style="display:flex; flex-direction:column; gap:16px;">
+        <div class="field-group">
+          <label for="vat-pre" class="field-label">Giá trước thuế (Chưa VAT)</label>
+          <input id="vat-pre" type="number" class="number-input" placeholder="0" autocomplete="off">
+        </div>
+        <div class="field-group">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <label for="vat-tax" class="field-label" style="margin-bottom:0;">Tiền thuế VAT</label>
+            <button id="btn-copy-vat-tax" class="chip" style="padding:2px 8px; font-size:11px;">Sao chép</button>
+          </div>
+          <input id="vat-tax" type="number" class="number-input" placeholder="0" autocomplete="off" readonly style="background:#f9f9f9;">
+        </div>
+        <div class="field-group">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <label for="vat-post" class="field-label" style="margin-bottom:0;">Giá sau thuế (Đã gồm VAT)</label>
+            <button id="btn-copy-vat-post" class="chip" style="padding:2px 8px; font-size:11px;">Sao chép</button>
+          </div>
+          <input id="vat-post" type="number" class="number-input" placeholder="0" autocomplete="off">
+        </div>
+      </div>
+      <p class="field-hint" style="margin-top:12px;">Nhập vào bất kỳ ô nào (Trực tiếp hoặc Đã gồm VAT), hệ thống sẽ tự động tính các ô còn lại.</p>
+    </section>
+  </div> <!-- end view-vat -->
+
+  <!-- View 4: Chuẩn Hóa Xóa Dấu -->
+  <div id="view-nodiacritics" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-nodiacritics">
+      <h2 id="tool-heading-nodiacritics" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Xóa Dấu Tiếng Việt (Chuẩn hóa)
+      </h2>
+      <p class="field-hint mb-3">Tạo nội dung không dấu chuẩn để chuyển khoản Ngân hàng (tránh lỗi font hệ thống core-banking).</p>
+      
+      <div class="field-group">
+        <textarea id="nodiacritics-input" class="batch-textarea" placeholder="Nhập nội dung (VD: NGUYỄN VĂN A THANH TOÁN MÁY TÍNH)" rows="3"></textarea>
+      </div>
+
+      <div class="result-wrap" style="display:block; margin-top:20px;">
+        <div class="result-header">
+          <span class="result-label">Kết quả chuyển máy</span>
+          <button id="btn-copy-nodiacritics" class="chip">Copy</button>
+        </div>
+        <div id="nodiacritics-result" class="result-text" style="min-height:50px;"></div>
+      </div>
+
+      <div class="batch-dropzone" data-tool="nodiacritics">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div style="font-weight:600; margin-top:8px;">Xóa Dấu hàng loạt (Multiple Files)</div>
+        <div class="field-hint">Kéo & Thả nhiều file .csv hoặc .txt vào đây</div>
+        <input type="file" multiple accept=".csv,.txt" style="display:none;" />
+      </div>
+    </section>
+  </div> <!-- end view-nodiacritics -->
+
+  <!-- View 5: Tính Lương Gross / Net -->
+  <div id="view-salary" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-salary">
+      <h2 id="tool-heading-salary" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+        Tính Lương Gross ↔ Net (Chuẩn BHXH)
+      </h2>
+      
+      <div class="options-wrap" style="align-items:flex-end;">
+        <div class="field-group" style="flex:1; margin-bottom:0;">
+          <label for="salary-input" class="field-label">Thu nhập (VNĐ)</label>
+          <input id="salary-input" type="number" class="number-input" placeholder="Ví dụ: 20000000" autocomplete="off">
+        </div>
+        <div class="options-group" style="margin-bottom:0;">
+          <div class="seg-group" style="height:53px; border-radius:var(--r-md);">
+            <button id="btn-to-net" class="seg active" style="height:100%;">Gross ➔ Net</button>
+            <button id="btn-to-gross" class="seg" style="height:100%;">Net ➔ Gross</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;">
+        <div class="field-group">
+          <label class="field-label">Vùng đóng BH</label>
+          <select id="salary-region" class="number-input" style="font-size:15px; padding:10px;">
+            <option value="1">Vung I (LTTV: 5.31tr)</option>
+            <option value="2">Vung II (LTTV: 4.73tr)</option>
+            <option value="3">Vung III (LTTV: 4.14tr)</option>
+            <option value="4">Vung IV (LTTV: 3.70tr)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="salary-dependents" class="field-label">Số NPT (Giảm trừ gia cảnh)</label>
+          <input id="salary-dependents" type="number" class="number-input" style="font-size:15px; padding:10px;" value="0" min="0">
+        </div>
+      </div>
+
+      <button id="btn-calc-salary" class="btn-primary">Diễn giải Lương chi tiết</button>
+
+      <div id="salary-result-wrap" class="result-wrap hidden" style="background:#fcfcfc;">
+        <table style="width:100%; border-collapse:collapse; font-size:14px; text-align:right;">
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:8px 0; text-align:left; color:#787672;">Lương GROSS</td>
+            <td style="padding:8px 0; font-weight:600;" id="out-gross">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Bảo hiểm xã hội (8%)</td>
+            <td style="padding:8px 0; color:#E03131;" id="out-bhxh">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Bảo hiểm y tế (1.5%)</td>
+            <td style="padding:8px 0; color:#E03131;" id="out-bhyt">-</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Bảo hiểm thất nghiệp (1%)</td>
+            <td style="padding:8px 0; color:#E03131;" id="out-bhtn">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; text-align:left; color:#787672;">Thu nhập trước thuế</td>
+            <td style="padding:8px 0; font-weight:600;" id="out-tntt">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Giảm trừ bản thân</td>
+            <td style="padding:8px 0; color:#1971C2;" id="out-gt-banthan">-</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Giảm trừ người phụ thuộc</td>
+            <td style="padding:8px 0; color:#1971C2;" id="out-gt-npt">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; text-align:left; color:#787672;">Thu nhập tính thuế</td>
+            <td style="padding:8px 0; font-weight:600;" id="out-thu-nhap-tinh-thue">-</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:8px 0; text-align:left; color:#787672;">- Thuế TNCN phải nộp</td>
+            <td style="padding:8px 0; color:#E03131; font-weight:600;" id="out-tax">-</td>
+          </tr>
+          <tr style="font-size:18px;">
+            <td style="padding:12px 0; text-align:left; font-weight:700; color:#37b24d;">Lương NET</td>
+            <td style="padding:12px 0; font-weight:700; color:#37b24d;" id="out-net">-</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div> <!-- end view-salary -->
+
+  <!-- View 6: Tách họ tên -->
+  <div id="view-hrname" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-hrname">
+      <h2 id="tool-heading-hrname" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tách Họ Tên / Tạo Email (HR Data)
+      </h2>
+      <p class="field-hint mb-3">Dán cột danh sách "Họ và Tên", công cụ sẽ phân rã thành "Họ Đệm" - "Tên" chuẩn để sắp xếp A-Z hoặc tự động sinh địa chỉ Email công ty.</p>
+      
+      <div class="field-group">
+        <textarea id="hrname-input" class="batch-textarea" placeholder="Trần Văn B&#10;Nguyễn Thị Kiều Oanh" rows="5"></textarea>
+      </div>
+
+      <div class="options-wrap">
+        <button id="btn-split-name" class="btn-primary" style="flex:1;">Tách Họ Đệm & Tên</button>
+        <button id="btn-gen-email" class="btn-secondary" style="flex:1;">Tạo Email (ten.hoviet-tat)</button>
+      </div>
+
+      <div id="hrname-result-wrap" class="result-wrap hidden" style="margin-top:20px;">
+        <div class="result-header">
+          <span class="result-label" id="hrname-mode-label">Kết quả tách</span>
+          <button id="btn-copy-hrname" class="chip">Sao chép chuẩn Excel</button>
+        </div>
+        <div id="hrname-result" class="batch-results" aria-live="polite" style="max-height:300px; overflow-y:auto; padding-top:10px;"></div>
+      </div>
+
+      <div class="batch-dropzone" data-tool="hrname">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div style="font-weight:600; margin-top:8px;">Tách Tên/Email hệ thống (Nhiều tệp)</div>
+        <div class="field-hint">Kéo & Thả file .csv Nhân sự vào đây</div>
+        <input type="file" multiple accept=".csv,.txt" style="display:none;" />
+      </div>
+    </section>
+  </div> <!-- end view-hrname -->
+
+  <!-- View 7: Đọc Hóa Đơn XML -->
+  <div id="view-xml" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-xml">
+      <h2 id="tool-heading-xml" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Trình Đọc Hóa Đơn XML Nội Bộ
+      </h2>
+      <p class="field-hint mb-3">Kéo & Thả file <code>.xml</code> hóa đơn vào đây để đọc nhanh. Dữ liệu xử lý 100% Offline trên máy bạn (Bảo mật tuyệt đối, không lưu máy chủ).</p>
+      
+      <div id="xml-dropzone" style="border: 2px dashed var(--border); border-radius: var(--r-md); padding: 40px; text-align: center; cursor: pointer; transition: all var(--t); background: var(--bg-hover); margin-bottom:var(--sp-5);">
+        <div style="font-size:32px; color:var(--text-light); margin-bottom:10px;">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <div style="font-weight:600; color:var(--text-2);">Click chọn hoặc Kéo thả file XML vào đây</div>
+        <div class="field-hint">Chỉ hỗ trợ chuẩn Hóa Đơn Điện Tử VN</div>
+        <input type="file" id="xml-file" accept=".xml" style="display:none;" />
+      </div>
+
+      <div id="xml-result-wrap" class="result-wrap hidden" style="background:#fcfcfc;">
+        <div style="text-align:center; padding-bottom:12px; margin-bottom:16px; border-bottom:1px solid #eee; position:relative;">
+          <h3 style="font-size:18px; color:var(--green-dark); margin:0;">HÓA ĐƠN ĐIỆN TỬ GIÁ TRỊ GIA TĂNG</h3>
+          <button id="btn-copy-xml" class="chip" style="position:absolute; right:0; top:0;">Sao chép Tóm tắt</button>
+          <div style="color:var(--text-light); font-size:13px;" id="xml-khdt">Mẫu số: - Ký hiệu: - Số HĐ: </div>
+          <div style="color:var(--text-muted); font-size:13px;" id="xml-date">Lập ngày: </div>
+        </div>
+        
+        <div style="font-size:13.5px; line-height:1.6; margin-bottom:16px;">
+          <div><strong style="color:#555">Đơn vị bán:</strong> <span id="xml-sell-name">-</span></div>
+          <div><strong style="color:#555">MST:</strong> <span id="xml-sell-mst">-</span></div>
+          <hr style="border:0; border-top:1px dashed #ddd; margin:10px 0;">
+          <div><strong style="color:#555">Khách hàng:</strong> <span id="xml-buy-name">-</span></div>
+          <div><strong style="color:#555">MST:</strong> <span id="xml-buy-mst">-</span></div>
+        </div>
+
+        <table style="width:100%; border-collapse:collapse; font-size:14px; text-align:right;">
+          <tr style="border-top:1px solid #ddd; background:#f9f9f9; text-align:center; font-size:12px; color:#555;">
+            <th style="padding:6px; font-weight:normal; border:1px solid #eee; text-align:left;">Tên HH, DV</th>
+            <th style="padding:6px; font-weight:normal; border:1px solid #eee;">Thành tiền (Chưa thuế)</th>
+          </tr>
+          <tbody id="xml-items-body"></tbody>
+          <tr style="border-top:2px solid #ddd;">
+            <td style="padding:8px 6px; text-align:left; color:#555;">Tổng tiền hàng hóa:</td>
+            <td style="padding:8px 6px; font-weight:600;" id="xml-sum-net">-</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 6px; text-align:left; color:#555;">Tổng tiền thuế VAT:</td>
+            <td style="padding:8px 6px; font-weight:600;" id="xml-sum-vat">-</td>
+          </tr>
+          <tr style="font-size:16px;">
+            <td style="padding:10px 6px; text-align:left; font-weight:700; color:#37b24d;">Tổng thanh toán:</td>
+            <td style="padding:10px 6px; font-weight:700; color:#37b24d;" id="xml-sum-total">-</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div> <!-- end view-xml -->
+
+  <!-- View 8: VietQR -->
+  <div id="view-vietqr" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-vietqr">
+      <h2 id="tool-heading-vietqr" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><rect x="7" y="7" width="3" height="3"/><rect x="14" y="7" width="3" height="3"/><rect x="7" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/></svg>
+        Tạo Mã Chuyển Khoản Nhanh VietQR
+      </h2>
+      <p class="field-hint mb-3">Sinh mã QR Code chuẩn NAPAS. Khách hàng chỉ cần quét app ngân hàng là đúng 100% STK và số tiền hợp đồng.</p>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:16px; margin:20px 0;">
+        <div class="field-group" style="margin-bottom:0;">
+          <label class="field-label">Ngân hàng thụ hưởng</label>
+          <select id="qr-bank" class="number-input" style="appearance:auto; cursor:pointer;">
+            <option value="" disabled selected>-- Chọn Ngân hàng --</option>
+            <option value="970436">Vietcombank (VCB)</option>
+            <option value="970415">VietinBank (CTG)</option>
+            <option value="970418">BIDV</option>
+            <option value="970405">Agribank (VBA)</option>
+            <option value="970422">MBBank (MB)</option>
+            <option value="970407">Techcombank (TCB)</option>
+            <option value="970416">ACB</option>
+            <option value="970432">VPBank (VPB)</option>
+            <option value="970423">TPBank (TPB)</option>
+            <option value="970403">Sacombank (STB)</option>
+            <option value="970437">HDBank (HDB)</option>
+            <option value="970441">VIB</option>
+            <option value="970443">SHB</option>
+            <option value="970431">Eximbank (EIB)</option>
+            <option value="970426">MSB</option>
+            <option value="970448">OCB</option>
+            <option value="970400">Saigonbank</option>
+          </select>
+        </div>
+        <div class="field-group" style="margin-bottom:0;">
+          <label class="field-label">Số tài khoản</label>
+          <input id="qr-acc" type="text" class="number-input" placeholder="Nhập số tài khoản..." autocomplete="off">
+        </div>
+        <div class="field-group" style="margin-bottom:0;">
+          <label class="field-label">Số tiền (VNĐ)</label>
+          <input id="qr-amt" type="number" class="number-input" placeholder="Ví dụ: 500000" autocomplete="off">
+        </div>
+        <div class="field-group" style="margin-bottom:0;">
+          <label class="field-label">Nội dung thanh toán (Đã xóa dấu tự động nếu gõ tiếng Việt)</label>
+          <input id="qr-desc" type="text" class="number-input" placeholder="HD123 NGUYEN VAN A CAN TOAN" autocomplete="off">
+        </div>
+      </div>
+      
+      <button id="btn-gen-qr" class="btn-primary">Tạo Mã VietQR Của Tôi</button>
+
+      <div id="qr-result-wrap" class="result-wrap hidden" style="text-align:center;">
+        <div class="result-header">
+          <span class="result-label">Kết Quả VietQR</span>
+        </div>
+        <img id="qr-image" src="" alt="Mã VietQR" style="max-width:280px; margin:10px auto; border-radius:var(--r-md); box-shadow:var(--shadow-sm);">
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
+          <button id="btn-copy-qr" class="btn-secondary" style="font-size:13px; padding:6px 12px; display:inline-flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            Sao chép Ảnh
+          </button>
+          <button id="btn-download-qr" class="btn-secondary" style="font-size:13px; padding:6px 12px; display:inline-flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Tải Xuống
+          </button>
+        </div>
+        <p class="field-hint" style="margin-top:15px;">Dán trực tiếp vào file Word / Zalo / Email (Ctrl+V) hoặc Tải về nhét vào phụ lục hợp đồng.</p>
+      </div>
+    </section>
+  </div> <!-- end view-vietqr -->
+
+  <!-- View 10: Excel Addin Hub -->
+  <div id="view-excel-addin" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-excel">
+      <div style="text-align:center; padding:20px 0 30px 0; border-bottom:1px solid var(--border); margin-bottom:30px;">
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; background:var(--green-light); border-radius:16px; color:var(--green-dark); margin-bottom:16px;">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h2 id="tool-heading-excel" style="font-size:24px; font-weight:700; color:var(--text-1); margin:0 0 10px 0;">Trung Tâm Cài Đặt (Excel Add-in)</h2>
+        <p class="field-hint" style="max-width:500px; margin:0 auto; font-size:14.5px;">Mang bộ chuyển phép màu Đọc Số về nằm vĩnh viễn trên bảng tính Excel của bạn. Không cần mở Web, chỉ cần cài đặt 1 lần duy nhất cho mọi tài liệu.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <!-- Bản Cổ Điển -->
+        <div style="background:var(--bg-page); border:2px solid var(--border); border-radius:var(--r-md); padding:24px; transition:all var(--t);">
+          <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:#f1f3f5; border-radius:100px; font-size:12px; font-weight:700; color:#495057; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px;">Bản Truyền Thống (.xlam)</div>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Cho Normal User</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); min-height:45px;">Cài đặt thủ công bằng file gốc. Dùng hàm `=VND(A1)` trực tiếp trên Windows & Mac.</p>
+          <ul style="font-size:13px; color:var(--text-2); padding-left:18px; margin-bottom:24px; display:flex; flex-direction:column; gap:8px;">
+            <li>Ưu điểm: Vĩnh cửu, Siêu nhẹ, Offline 100%.</li>
+            <li>Nhược điểm: Không có giao diện AI (Chỉ dùng hàm).</li>
+            <li>Hỗ trợ: Mọi bản Windows/Mac (Từ 2013).</li>
+          </ul>
+          <a href="https://github.com/anlvdt/numbertowords/raw/main/legacy-vba/DocSoThanhChu.xlam" class="btn-primary" style="text-decoration:none; text-align:center;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Tải Tệp Classic (.xlam)
+          </a>
+        </div>
+
+        <!-- Bản Hiện Đại -->
+        <div style="background:var(--green-light); border:2px solid var(--green); border-radius:var(--r-md); padding:24px; position:relative;">
+          <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:var(--green); border-radius:100px; font-size:12px; font-weight:700; color:white; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.5px;">Khuyên Dùng (Panel Add-in)</div>
+          <h3 style="font-size:18px; font-weight:700; color:var(--green-dark); margin-bottom:8px;">Cho Advanced / 365 User</h3>
+          <p style="font-size:13.5px; color:#2b8a3e; min-height:45px;">Mang nguyên Dashboard Web này ngàm thẳng vào thanh Ribbon bên tay phải (Taskpane AI).</p>
+          <ul style="font-size:13px; color:#40c057; padding-left:18px; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; font-weight:500;">
+            <li style="color:#2b8a3e;">Ưu điểm: Tích hợp Llama-3 AI, Có nút bấm tương tác.</li>
+            <li style="color:#2b8a3e;">Nhược điểm: Yêu cầu Sideload (Manifest) hoặc IT cài đặt.</li>
+            <li style="color:#2b8a3e;">Hỗ trợ: Web Office, Mac 365, Win 365.</li>
+          </ul>
+          <a href="https://github.com/anlvdt/numbertowords/raw/main/manifest-prod.xml" class="btn-primary" style="background:#2b8a3e; box-shadow:none; text-decoration:none; text-align:center;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Tải File Core (manifest.xml)
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Install Guide -->
+      <h3 style="font-size:16px; margin:30px 0 12px 0;">Hướng Dẫn Cài Đặt Khẩn Cấp</h3>
+      <div style="background:#f9f9f9; padding:16px; border-radius:var(--r-md); font-size:13.5px; line-height:1.7; color:#555;">
+        <p style="margin-bottom:8px;"><strong style="color:var(--text-1);">Cách 1 (Bản Truyền Thống XLAM):</strong> Mở File Excel trắng > Bấm <code>Tiệp (File)</code> > <code>Tùy chọn (Options)</code> > <code>Add-ins</code> > Bấm thẻ [Go.. Mở] dưới đáy > [Browse.. Trỏ] tới file .xlam vừa tải để bật Vĩnh viễn.</p>
+        <hr style="border:1px dashed #ddd; margin:12px 0;" />
+        <p style="margin-bottom:0;"><strong style="color:var(--green-dark);">Cách 2 (Bản Hiện Đại 365):</strong> Mở File Excel (Kể cả Web) > Bấm Tab <code>Chèn (Insert)</code> > <code>Tiện ích của Tôi (My Add-ins)</code> > Chọn tải lên tùy chỉnh (Upload My Custom Addin) > Ném file `manifest` vào.</p>
+      </div>
+
+    </section>
+  </div> <!-- end view-excel-addin -->
+
+  <!-- View 9: Tác giả & Hỗ trợ -->
+  <div id="view-about" class="tool-view hidden">
+    <section class="tool-card" aria-labelledby="tool-heading-about">
+      <h2 id="tool-heading-about" class="tool-heading">
+        <svg class="tool-heading-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        Về Tác Giả & Phản Hồi Cộng Đồng
+      </h2>
+
+      <!-- Thông tin Tác giả -->
+      <div style="display:flex; align-items:center; gap:20px; padding:20px; background:var(--bg-hover); border-radius:var(--r-md); border:1px solid var(--border); margin-bottom:20px; flex-wrap:wrap;">
+        <img src="https://avatars.githubusercontent.com/u/9941956?s=400&v=4" alt="Le Van An (anlvdt)" style="width:80px; height:80px; border-radius:50%; border:2px solid var(--green); box-shadow:var(--shadow-sm); aspect-ratio:1/1;">
+        <div style="flex:1;">
+          <h3 style="margin:0 0 6px 0; font-size:20px; color:var(--text-1);">Le Van An <span style="font-size:14px; font-weight:normal; color:var(--text-light);">(@anlvdt)</span></h3>
+          <p class="field-hint" style="margin:0 0 10px 0;">Kỹ sư Sản phẩm / Đóng góp viên Mã nguồn mở. Đam mê tối ưu hóa luồng công việc tự động cho dân Kế toán - Văn phòng Việt Nam.</p>
+          <div style="display:flex; gap:10px;">
+            <a href="https://github.com/anlvdt" target="_blank" rel="noopener" class="chip" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-weight:600;">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              Truy cập Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yêu cầu / Hỗ trợ -->
+      <h3 style="font-size:16px; margin:24px 0 12px 0;">Báo lỗi & Phát triển tính năng</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:16px;">
+        <a href="https://github.com/anlvdt/numbertowords/issues/new?title=[BUG]%20L%E1%BB%97i%20h%E1%BB%87%20th%E1%BB%91ng" target="_blank" rel="noopener" style="text-decoration:none; padding:16px; border:1px solid var(--border); border-radius:var(--r-md); transition:all var(--t); background:var(--bg-page); display:block;" onmouseover="this.style.borderColor='var(--text-1)'" onmouseout="this.style.borderColor='var(--border)'">
+          <strong style="display:flex; align-items:center; gap:6px; color:var(--text-1); margin-bottom:6px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--red, #e03131)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Báo cáo lỗi hệ thống
+          </strong>
+          <span class="field-hint">Gặp lỗi sai font, số tính sai hay UI vỡ tỷ lệ? Nhấn vào đây báo cáo để tôi sửa ngay lập tức.</span>
+        </a>
+        <a href="https://github.com/anlvdt/numbertowords/issues/new?title=[FEATURE]%20%C4%90%E1%BB%81%20xu%E1%BA%A5t%20t%C3%ADnh%20n%C4%83ng" target="_blank" rel="noopener" style="text-decoration:none; padding:16px; border:1px solid var(--border); border-radius:var(--r-md); transition:all var(--t); background:var(--bg-page); display:block;" onmouseover="this.style.borderColor='var(--text-1)'" onmouseout="this.style.borderColor='var(--border)'">
+          <strong style="display:flex; align-items:center; gap:6px; color:var(--text-1); margin-bottom:6px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--green)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Đề xuất tính năng mới
+          </strong>
+          <span class="field-hint">Bạn cần công cụ mới để tính Tỷ giá, Lãi vay, hay OCR Chứng minh nhân dân? Góp ý tại đây nhé.</span>
+        </a>
+      </div>
+
+      <!-- Credits -->
+      <h3 style="font-size:16px; margin:30px 0 12px 0;">Credits & Architecture</h3>
+      <div style="background:#f9f9f9; padding:16px; border-radius:var(--r-md); font-size:13.5px; line-height:1.6; color:#555;">
+        <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px;">
+          <li><strong>UI/UX Design:</strong> Mang thiết kế tối giản, triệt tiêu Emoji, chịu ảnh hưởng từ <a href="https://notion.so" target="_blank" rel="noopener" style="color:var(--text-1)">Notion</a> và <a href="https://wise.com" target="_blank" rel="noopener" style="color:var(--text-1)">Wise</a>. Biểu tượng SVG thuộc bộ <a href="https://feathericons.com/" target="_blank" rel="noopener" style="color:var(--text-1)">Feather Icons</a> gốc.</li>
+          <li><strong>Thư viện Đọc Số:</strong> Kế thừa và cải tiến bằng Vanilla JS từ mã nguồn thuật toán VBA xuất bản bởi <a href="https://blog.hocexcel.online/doc-so-thanh-chu-bang-add-in-tu-hoc-excel-online.html" target="_blank" rel="noopener" style="color:var(--text-1); font-weight:600;">Học Excel Online</a>.</li>
+          <li><strong>Data Privacy:</strong> 100% Thuật toán chạy Client-side local, cắt đứt kết nối Database nội bộ. Mã QR tạo thông qua mã nguồn mở giao thức NAPAS (`vietqr.io`).</li>
+          <li><strong>Bản quyền:</strong> Phát hành với phân cấp <strong>MIT License</strong>. Cho phép quyền can thiệp, sao chép hoặc phân phối tự do.</li>
+        </ul>
+      </div>
+    </section>
+  </div> <!-- end view-about -->
+
+</div> <!-- End dashboard-content -->
+
+    <!-- Sidebar Right (Ad + Metadata) -->
     <aside class="sidebar" aria-label="Thông tin bổ sung">
 
       <!-- Ad: Sidebar -->
@@ -237,7 +750,10 @@
 
       <!-- Quick ref card -->
       <div class="ref-card">
-        <h3 class="ref-title">📐 Quy tắc đọc số VN</h3>
+        <h3 class="ref-title">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Quy tắc đọc số VN
+        </h3>
         <table class="ref-table" aria-label="Quy tắc đọc số tiếng Việt">
           <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
           <tbody>
@@ -304,7 +820,7 @@
         <h3 class="step-title">Copy kết quả</h3>
         <p class="step-desc">Nhấn <strong>Chuyển đổi ngay</strong> hoặc <kbd>Enter</kbd>, sau đó:</p>
         <ul class="step-list">
-          <li>Click <strong>📋 Copy</strong> — copy vào clipboard</li>
+          <li>Click <strong>Copy</strong> — copy vào clipboard</li>
           <li>Paste (Ctrl+V / ⌘+V) vào Word, Excel, hóa đơn</li>
           <li>Dùng Batch để convert nhiều số cùng lúc</li>
         </ul>
@@ -329,10 +845,10 @@
 -500000</pre>
         </div>
         <div class="guide-step">
-          <strong>Bước 3:</strong> Nhấn <strong>⚡ Convert tất cả</strong>
+          <strong>Bước 3:</strong> Nhấn <strong>Convert tất cả</strong>
         </div>
         <div class="guide-step">
-          <strong>Bước 4:</strong> Click <strong>📋 Copy tất cả</strong> để copy toàn bộ kết quả
+          <strong>Bước 4:</strong> Click <strong>Copy tất cả</strong> để copy toàn bộ kết quả
         </div>
       </div>
     </div>

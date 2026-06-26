@@ -1,0 +1,27 @@
+{
+  "name": "DocSo AI - Tiện Ích Văn Phòng",
+  "short_name": "DocSoAI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#37b24d",
+  "description": "Tiện ích đa năng All-in-One cho Kế toán và Hành chính. Đọc số thành chữ, VAT, VietQR, HR Names.",
+  "icons": [
+    {
+      "src": "./assets/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

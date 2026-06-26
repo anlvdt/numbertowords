@@ -130,8 +130,10 @@ pre.code-block {
 
 /* ─── Layout ─────────────────────────────────────────────── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--sp-6); }
+/* ─── Utility ────────────────────────────────────────────── */
 .hidden { display: none !important; }
 .text-green { color: var(--green); }
+.mb-3 { margin-bottom: var(--sp-3); }
 
 /* ─── Navigation ─────────────────────────────────────────── */
 .nav {
@@ -248,8 +250,48 @@ pre.code-block {
 .ad-container { text-align: center; display: flex; justify-content: center; }
 .ad-top, .ad-mid, .ad-bottom { border-bottom: 1px solid var(--border); }
 
-/* ─── Main layout ────────────────────────────────────────── */
-.main-tool { padding: var(--sp-10) 0 var(--sp-16); background: var(--bg-page); }
+/* ─── Dashboard Layout (All-in-One) ─────────────────────── */
+.main-tool { padding: var(--sp-8) 0 var(--sp-16); background: var(--bg-page); }
+.dashboard-layout { display: grid; grid-template-columns: 240px 1fr 280px; gap: var(--sp-6); align-items: start; }
+@media (max-width: 1024px) { .dashboard-layout { grid-template-columns: 220px 1fr; } }
+@media (max-width: 768px) { .dashboard-layout { grid-template-columns: 1fr; } }
+
+/* Sidebar Menu */
+.dashboard-sidebar {
+  position: sticky; top: 80px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  box-shadow: var(--shadow-sm);
+}
+.tool-menu { display: flex; flex-direction: column; gap: 4px; }
+.tool-tab {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  width: 100%; text-align: left;
+  background: transparent; border: none; border-radius: var(--r-sm);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+  color: var(--text-2); cursor: pointer;
+  transition: all var(--t);
+}
+.tool-tab .tab-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 4px;
+  background: var(--bg-page); color: var(--text-muted);
+  font-weight: 700; transition: all var(--t);
+}
+.tool-tab:hover { background: var(--bg-hover); color: var(--text); }
+.tool-tab.active {
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 600;
+}
+.tool-tab.active .tab-icon {
+  background: var(--green); color: white;
+}
+
+/* Tool Layout Fallback */
 .tool-layout { display: grid; grid-template-columns: 1fr 300px; gap: var(--sp-8); align-items: start; }
 @media (max-width: 900px) { .tool-layout { grid-template-columns: 1fr; } }
 
@@ -296,6 +338,15 @@ pre.code-block {
   outline: none;
   transition: border-color var(--t), box-shadow var(--t);
   -moz-appearance: textfield;
+}
+select.number-input, 
+#qr-desc {
+  font-size: 14.5px; 
+  font-weight: 500; 
+  padding: 10px 14px;
+}
+#qr-acc {
+  font-size: 18px;
 }
 .number-input::-webkit-outer-spin-button,
 .number-input::-webkit-inner-spin-button { -webkit-appearance: none; }
@@ -369,7 +420,31 @@ pre.code-block {
   font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
   cursor: pointer; transition: all var(--t);
 }
-.btn-secondary:hover { background: var(--green-light); }
+.btn-secondary:hover {
+  background: var(--bg-hover);
+}
+
+/* ─── Batch Dropzone ─── */
+.batch-dropzone {
+  border: 2px dashed var(--border); 
+  border-radius: var(--r-md); 
+  padding: 30px; 
+  text-align: center; 
+  cursor: pointer; 
+  transition: all var(--t); 
+  background: var(--bg-hover); 
+  margin-top: var(--sp-4);
+  color: var(--text-2);
+}
+.batch-dropzone:hover, .batch-dropzone.dragover {
+  border-color: var(--green);
+  background: #e6fcf5;
+}
+.batch-dropzone svg {
+  color: var(--text-light);
+  margin-bottom: 8px;
+  display: inline-block;
+}
 
 .icon-btn {
   background: var(--bg-page);

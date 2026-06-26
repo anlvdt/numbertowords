@@ -1,0 +1,13 @@
+{
+  "name": "numbertowords",
+  "version": "2.1.1",
+  "private": true,
+  "description": "DocSoThanhChu AI — Excel Add-in, Web Tool, VBA legacy",
+  "license": "MIT",
+  "scripts": {
+    "test": "node scripts/test-converter.js",
+    "sync-docs": "./sync-docs.sh",
+    "start:addin": "npm run start --prefix web-addin",
+    "validate:manifest": "npm run validate --prefix web-addin"
+  }
+}

@@ -16,7 +16,7 @@ echo ""
 
 # Check manifest exists
 if [ ! -f "$MANIFEST" ]; then
-  echo "❌ manifest.xml not found at: $MANIFEST"
+  echo "[ERROR] manifest.xml not found at: $MANIFEST"
   exit 1
 fi
 
@@ -31,19 +31,19 @@ for DIR in "${CATALOG_DIRS[@]}"; do
   if [ -d "$(dirname "$DIR")" ]; then
     mkdir -p "$DIR"
     cp "$MANIFEST" "$DIR/manifest.xml"
-    echo "✅ Manifest copied to: $DIR"
+    echo "[OK] Manifest copied to: $DIR"
     INSTALLED=1
     break
   fi
 done
 
 if [ $INSTALLED -eq 0 ]; then
-  echo "⚠️  Could not find Excel for Mac installation."
+  echo "[WARN] Could not find Excel for Mac installation."
   echo "   Trying manual sideload path..."
   FALLBACK="$HOME/Library/Containers/com.microsoft.Excel/Data/Documents/wef"
   mkdir -p "$FALLBACK"
   cp "$MANIFEST" "$FALLBACK/manifest.xml"
-  echo "✅ Manifest copied to: $FALLBACK"
+  echo "[OK] Manifest copied to: $FALLBACK"
 fi
 
 echo ""

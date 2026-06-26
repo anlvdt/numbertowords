@@ -3,7 +3,7 @@
 ## Bước 1 — Push code lên GitHub
 
 ```bash
-cd /Volumes/EXTERNAL/01_DEV_PROJECTS/MyApps/numbertowords-1
+cd /Volumes/EXTERNAL/01_DEV_PROJECTS/MyApps/numbertowords
 
 # Nếu chưa có git repo
 git init

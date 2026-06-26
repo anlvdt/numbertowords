@@ -1,0 +1,43 @@
+const CACHE_NAME = 'docso-v2.1.1';
+const ASSETS = [
+  './',
+  './index.html',
+  './style.css',
+  './app.js',
+  './converter.js',
+  './manifest-pwa.json',
+  './assets/logo.svg',
+  './assets/icon-128.png',
+  './assets/icon-64.png'
+];
+
+// Cài đặt và tải trước mọi Asset quan trọng vào Cache Offline
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
+  self.skipWaiting();
+});
+
+// Xóa file Cache Rác (Phiên bản cũ) khi update version
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// Bắt Request mạng: Cache First, Network Fallback
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((res) => {
+      return res || fetch(e.request);
+    })
+  );
+});

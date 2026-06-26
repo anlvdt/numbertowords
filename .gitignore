@@ -1,5 +1,10 @@
 # Ignore build artifacts
 *.log
+node_modules/
+
+# IDE / local tooling
+.agents/
+.vscode/
 
 # Windows
 Thumbs.db
@@ -7,3 +12,4 @@ Desktop.ini
 
 # macOS
 .DS_Store
+._*

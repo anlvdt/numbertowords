@@ -22,16 +22,16 @@ async function main() {
     const certs = await devCerts.getHttpsServerOptions();
     const app   = express();
 
-    // Serve static files from web-addin root
-    app.use(express.static(ROOT));
-
-    // CORS for Office.js
+    // CORS for Office.js (must be before static middleware)
     app.use((req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
       next();
     });
+
+    // Serve static files from web-addin root
+    app.use(express.static(ROOT));
 
     server = https.createServer({ ca: certs.ca, pfx: certs.pfx }, app);
     server.listen(PORT, () => {

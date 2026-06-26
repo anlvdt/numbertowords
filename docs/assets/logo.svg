@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Nền xanh lá (Wise Green) có bo tròn -->
+  <rect width="128" height="128" rx="28" fill="#37B24D" />
+  
+  <!-- Chữ '₫' trắng tối giản ở giữa (đại diện cho đồng tiền Việt Nam) -->
+  <text x="50%" y="54%" 
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+        font-size="88" 
+        font-weight="800" 
+        fill="white" 
+        text-anchor="middle" 
+        dominant-baseline="central">₫</text>
+        
+  <!-- Đường vạch ngang tinh tế phía dưới chữ ₫ nếu font ko hiển thị đúng gạch -->
+  <!-- <line x1="40" y1="92" x2="88" y2="92" stroke="white" stroke-width="8" stroke-linecap="round"/> -->
+</svg>

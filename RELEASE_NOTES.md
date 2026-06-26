@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.1.1 (2026-06-26)
+
+### Repository Merge & Audit
+- **Merged `docsothanhchu`** into `numbertowords` — VBA source consolidated under `legacy-vba/`
+- **Fixed broken download links** — `.xlam` now points to `legacy-vba/DocSoThanhChu.xlam`
+- **Fixed `CAI_DAT_WINDOWS.cmd`** — copies from `legacy-vba/` path
+- **Docs sync** — `sync-docs.sh` verified; web-addin and docs/src in sync
+- **README unified** — badges, support info, accounting rules, and v2.x docs combined
+- **Added** `ABOUT.md`, `docs/KARPATHY-AI-LEARNING-GUIDE.md` from legacy repo
+
+---
+
 ## v2.1.0 (2026-04-14)
 
 ### 🎨 Major: Enterprise UI/UX Unification & Rebranding
@@ -14,7 +26,7 @@
 ### 🚀 New: Office.js Web Add-in (Mac + Windows + Excel Online)
 - **Cross-platform**: chạy trên Excel macOS, Windows, và Excel Online
 - **Custom Functions**: `=DOCSO.VND_VI()`, `=DOCSO.VND_EN()`, `=DOCSO.USD_VI()`, `=DOCSO.USD_EN()`, `=DOCSO.SO_VI()`, `=DOCSO.SO_EN()`
-- **AI Mode**: `=DOCSO.AI_SO(number, lang, currency)` — Gemini Flash API, fallback tự động về rule-based
+- **AI Mode**: `=DOCSO.AI_SO(number, lang, currency)` — Groq Llama-3.1 API, fallback tự động về rule-based
 - **Task Pane UI**: dark mode, convert nhanh, batch convert, insert-to-cell, AI toggle
 - **Shared Runtime**: Task Pane và Custom Functions dùng chung JS context → API key nhập 1 lần, dùng được trong cả cell formula
 
@@ -25,15 +37,12 @@
 
 ### Structure
 ```
-numbertowords-1/
-├── vba/                  ← Legacy Windows-only VBA (patched)
-│   └── modDocSoThanhChu.bas
-└── web-addin/            ← NEW: Office.js (Mac + Win + Web)
-    ├── manifest.xml
-    ├── src/core/converter.js
-    ├── src/core/ai-client.js
-    ├── src/functions/functions.js
-    └── src/taskpane/
+numbertowords/
+├── legacy-vba/           ← VBA Add-in (.xlam) + build scripts
+├── web-addin/            ← Office.js Add-in (Mac + Win + Web)
+│   ├── manifest.xml
+│   └── src/
+└── docs/                 ← Web tool + GitHub Pages
 ```
 
 ---
